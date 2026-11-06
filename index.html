@@ -156,6 +156,29 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .next .arrow{font-family:var(--display);font-size:2.4rem}
 .cap{font-style:italic;color:var(--muted);font-size:.95rem}
 
+/* challenge + coloured headers */
+.cs-head.band{border-radius:32px;padding:clamp(28px,5vw,56px);margin-top:16px}
+.cs-head.band .tag{background:var(--surface)}
+.cs-head.band .facts{border-bottom:0;padding-bottom:0;border-top:1px solid var(--line);padding-top:24px;margin-top:8px}
+.cs-head.band .lead{color:var(--ink);opacity:.82}
+.challenge{background:var(--rose);border-radius:28px;padding:clamp(28px,5vw,56px) clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);margin-block:48px 8px}
+.challenge .head{display:flex;flex-direction:column;gap:14px;min-width:0}
+.challenge .label{color:var(--ink)}
+.challenge .q{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.22;font-weight:600;text-wrap:balance}
+.challenge .body{display:flex;flex-direction:column;gap:16px;min-width:0}
+.steps6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.steps6 .panel{padding:24px 24px}
+.steps6 .k{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.steps6 p{font-size:.95rem}
+.los{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.los .panel{padding:24px 26px}
+.los .k{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.los .k b{font-family:var(--display);font-size:1.3rem}
+.los .k span{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.note{font-size:.95rem;color:var(--muted);font-style:italic}
+@media (max-width:900px){.challenge{grid-template-columns:1fr}.steps6{grid-template-columns:repeat(2,minmax(0,1fr))}.los{grid-template-columns:1fr}}
+@media (max-width:640px){.steps6{grid-template-columns:1fr}}
+
 /* Daily card mockup */
 .stage{border-radius:28px;background:var(--butter);padding:48px 24px;display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
 .paper{background:#FFFFFF;color:#2B2A28;width:380px;max-width:100%;border-radius:8px;box-shadow:0 12px 32px rgba(43,42,40,.14);padding:24px;display:flex;flex-direction:column;gap:12px;font-size:11px;line-height:1.35}
@@ -258,13 +281,13 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
           <span class="more">Read case study →</span>
         </div>
       </a>
-      <a class="card" href="assets/adult-literacy-curriculum.pdf" target="_blank" rel="noopener">
+      <a class="card" href="#adult-literacy">
         <div class="thumb"><img src="assets/curriculum-plan.png" alt="Extract from the curriculum and assessment plan" style="object-position:top left"></div>
         <div class="body">
           <span class="tag bg-peach" style="align-self:flex-start">Curriculum design · Conceptual</span>
           <h3>Adult literacy curriculum</h3>
           <p>A conceptual functional literacy and English programme for rural women in Zambia, built around andragogy, Ubuntu and translanguaging.</p>
-          <span class="more">View the curriculum (PDF) ↗</span>
+          <span class="more">Read case study →</span>
         </div>
       </a>
       <a class="card" href="#daily-card">
@@ -346,7 +369,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 <div data-page="cotrace">
   <div class="wrap">
     <a class="back" href="#work">← Back to all work</a>
-    <header class="cs-head">
+    <header class="cs-head band bg-lilac">
       <div class="cs-title">
         <div class="stack" style="gap:20px">
           <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning · Concept in progress</span>
@@ -363,10 +386,13 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       </div>
     </header>
 
-    <div class="row2"><span class="label">The problem</span><div class="body">
-      <p>Generative AI could be a powerful thinking partner for students, but in most tertiary settings there’s very little structure around how it’s used. Without that structure, students tend to reach for AI’s most visible feature, generating text, rather than its most valuable one: questioning and pushing their thinking.</p>
-      <p>Asking students to explain their thinking after the fact doesn’t solve this. It adds admin for students and educators, and a reflection written at the end rarely captures what actually happened along the way.</p>
-    </div></div>
+    <div class="challenge">
+      <div class="head"><span class="label">The challenge</span><p class="q">Students have powerful AI tools but little structure for using them to think, not just to write.</p></div>
+      <div class="body">
+        <p>Generative AI could be a powerful thinking partner for students, but in most tertiary settings there’s very little structure around how it’s used. Without that structure, students tend to reach for AI’s most visible feature, generating text, rather than its most valuable one: questioning and pushing their thinking.</p>
+        <p>Asking students to explain their thinking after the fact doesn’t solve this. It adds admin for students and educators, and a reflection written at the end rarely captures what actually happened along the way.</p>
+      </div>
+    </div>
     <div class="row2"><span class="label">What CoTrace does</span><div class="body">
       <p>CoTrace documents decisions, revisions and turning points as they happen. When a student changes direction, challenges an AI suggestion or rethinks an argument, CoTrace prompts them to explain what happened and why, gradually helping them notice these moments on their own.</p>
       <p>It isn’t a surveillance tool, and it doesn’t claim to guarantee academic integrity. It’s designed to create better conditions for genuine engagement than unstructured AI use, and to make the process visible enough to assess.</p>
@@ -443,7 +469,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 <div data-page="facilitator-module">
   <div class="wrap">
     <a class="back" href="#work">← Back to all work</a>
-    <header class="cs-head">
+    <header class="cs-head band bg-sky">
       <span class="tag bg-sky" style="align-self:flex-start">Online learning design · Faculty development</span>
       <h1>Facilitator Orientation Module: preparing educators to teach with CoTrace</h1>
       <p class="lead">An online orientation module for tertiary facilitators taking on a new role with CoTrace. Its AI guide models the same behaviour facilitators will need to use with their students.</p>
@@ -455,10 +481,13 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       </div>
     </header>
 
-    <div class="row2"><span class="label">The gap</span><div class="body">
-      <p>Many institutions value generative, process-focused learning but lack the infrastructure to support it (Corbin et al., 2025). CoTrace provides that infrastructure, and it also creates a new role: the CoTrace Learning Facilitator.</p>
-      <p>That role asks educators to make a big shift, from content provider to what Vendrell and Johnston (2026) call a “cognitive orchestrator.” Facilitators need to know how to use the platform, and also why it works the way it does, so they can apply its logic consistently with real students.</p>
-    </div></div>
+    <div class="challenge">
+      <div class="head"><span class="label">The challenge</span><p class="q">CoTrace creates a new role for educators, and they need to understand it from the inside before they can guide students through it.</p></div>
+      <div class="body">
+        <p>Many institutions value generative, process-focused learning but lack the infrastructure to support it (Corbin et al., 2025). CoTrace provides that infrastructure, and it also creates a new role: the CoTrace Learning Facilitator.</p>
+        <p>That role asks educators to make a big shift, from content provider to what Vendrell and Johnston (2026) call a “cognitive orchestrator.” Facilitators need to know how to use the platform, and also why it works the way it does, so they can apply its logic consistently with real students.</p>
+      </div>
+    </div>
 
     <div class="callout bg-sky">
       <span class="label">Key design idea</span>
@@ -502,6 +531,102 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <div class="ctas" style="margin-top:28px"><a class="btn primary" href="assets/facilitator-module-storyboard.pdf" target="_blank" rel="noopener">View the full storyboard (PDF) ↗</a><a class="btn" href="#cotrace">About CoTrace</a></div>
     </section>
 
+    <a class="next" href="#adult-literacy"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>Adult literacy curriculum</h3></span><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- ADULT LITERACY -->
+<div data-page="adult-literacy">
+  <div class="wrap">
+    <a class="back" href="#work">← Back to all work</a>
+    <header class="cs-head band bg-peach">
+      <span class="tag" style="align-self:flex-start">Curriculum design · Conceptual</span>
+      <h1>Adult literacy curriculum: functional literacy and English for rural women in Zambia</h1>
+      <p class="lead">A community-based curriculum and assessment plan that helps Chichewa-speaking women manage market trading and banking on their own terms, designed around oral, communal and low-tech ways of learning.</p>
+      <div class="facts">
+        <div><span class="label">Learners</span><p>Chichewa-speaking women at a Tikondane-inspired community centre</p></div>
+        <div><span class="label">Format</span><p>Six 45-minute sessions, oral and low-tech</p></div>
+        <div><span class="label">Grounding</span><p>Ubuntugogy, andragogy, translanguaging, constructive alignment</p></div>
+        <div><span class="label">Status</span><p>Conceptual design for my diploma, not delivered to learners</p></div>
+      </div>
+    </header>
+
+    <div class="challenge">
+      <div class="head"><span class="label">The challenge</span><p class="q">Design a literacy curriculum that works in rural Zambia: low-tech, multilingual, oral and communal, for women largely left out of formal education.</p></div>
+      <div class="body">
+        <p>Adult literacy programmes in rural African community centres work under real pressure: poverty, underfunding, many languages and limited access to technology (Sichula and Genis, 2019). Electricity and data are unreliable, most digital content isn’t available in local languages, and volunteer facilitators often have little digital training (African Union, 2020; Trucano, 2014).</p>
+        <p>Standard assessment makes it harder still. Written tests rely on Eurocentric ways of knowing and can shut out learners who understand the content well but can’t yet write it down, especially in English (Bangura, 2005; McArthur, 2023).</p>
+      </div>
+    </div>
+
+    <div class="callout bg-peach" style="margin-top:40px">
+      <span class="label">Key insight</span>
+      <p class="big">The constraints became the design.</p>
+      <p style="max-width:48rem">Because the curriculum had to be low-tech, multilingual and oral, Ubuntu, translanguaging and community-based assessment became structural necessities instead of add-ons. Designing within the constraints made it a more authentically African design.</p>
+    </div>
+
+    <section style="padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Learning outcomes</span><h2>Four outcomes, from recall to evaluation</h2>
+        <p class="lead">Grounded in Bloom’s Digital Taxonomy (Churches, 2008), but reached through talk, performance and collaboration instead of screens.</p></div>
+      <div class="los">
+        <div class="panel bg-sky"><div class="k"><b>LO1</b><span>Remembering · Understanding</span></div><p>Recall and explain key vocabulary for market trading, basic banking and financial communication in both Chichewa and English.</p></div>
+        <div class="panel bg-sage"><div class="k"><b>LO2</b><span>Applying</span></div><p>Use polite spoken English and translanguaging strategies to negotiate prices and communicate with peers in simulated market trading.</p></div>
+        <div class="panel bg-butter"><div class="k"><b>LO3</b><span>Applying · Analysing</span></div><p>Apply functional literacy and numeracy to calculate costs, record transactions and interpret banking information.</p></div>
+        <div class="panel bg-lilac"><div class="k"><b>LO4</b><span>Evaluating · Creating</span></div><p>Evaluate their own and their peers’ communication and record-keeping through a shared trading activity, naming strengths and areas to improve.</p></div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The sessions</span><h2>Six sessions that build towards a community market</h2></div>
+      <div class="steps6">
+        <div class="panel outline"><span class="k">Session 1</span><h3>Community entry</h3><p>An Ubuntu name circle builds trust, Freirean picture codes draw out the market vocabulary learners already know, and “each one teach one” peer teaching links Chichewa to English.</p></div>
+        <div class="panel outline"><span class="k">Session 2</span><h3>Rhythm and oral practice</h3><p>Groups co-create bilingual chants for key phrases, such as “How much is this? / Ndalama zingati?”, using rhythm and gesture as memory anchors.</p></div>
+        <div class="panel outline"><span class="k">Session 3 · Assessed</span><h3>Market role-play</h3><p>Buyers and sellers negotiate with visual cue cards. Translanguaging is encouraged, and learners observe and give feedback to a peer.</p></div>
+        <div class="panel outline"><span class="k">Session 4 · Practice</span><h3>Banking simulation</h3><p>Learners complete mock deposit slips, tally sheets and paper versions of banking app screens, using them as literacy tools, not tech practice.</p></div>
+        <div class="panel outline"><span class="k">Session 5 · Summative</span><h3>Community market</h3><p>Everything comes together: learners run stalls, trade, keep records in both languages, and help peers who are still finishing.</p></div>
+        <div class="panel outline"><span class="k">Session 6 · Closing</span><h3>Ubuntu reflection circle</h3><p>Learners share what they learned and how their community helped them, then co-evaluate the programme with the facilitator.</p></div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The pedagogy underneath</span><h2>Learner-centred, communal and rooted in context</h2></div>
+      <div class="grid3">
+        <div class="panel outline"><span class="dot bg-peach"></span><h3>Ubuntugogy and co-creation</h3><p class="refs">Bangura (2005); Waghid (2005); Lubicz-Nawrocka (2022)</p><p>Learning is shared and communal. Content is co-constructed through dialogue and role-play instead of delivered, so the classroom becomes “just us” rather than “them and us.” Facilitators act as co-learners.</p></div>
+        <div class="panel outline"><span class="dot bg-sage"></span><h3>Andragogy</h3><p class="refs">Ngozwana (2020); Addae (2021)</p><p>The women are autonomous adults with rich prior knowledge. They identify their own learning needs, and every theme has immediate use in their daily lives, which is when literacy feels truly valuable.</p></div>
+        <div class="panel outline"><span class="dot bg-sky"></span><h3>Translanguaging</h3><p class="refs">Zondi and Mbatha (2025)</p><p>Chichewa and English work together. Learners’ home language bridges meaning while English proficiency grows, preserving cultural identity instead of replacing it.</p></div>
+        <div class="panel outline"><span class="dot bg-butter"></span><h3>Low-tech by design</h3><p class="refs">Trucano (2014)</p><p>“The best technology is the one you already have, know how to use, and can afford.” Blackboards, picture cards, props and paper imitations of banking apps prepare learners for digital tasks without depending on devices.</p></div>
+        <div class="panel outline"><span class="dot bg-lilac"></span><h3>A grassroots curriculum model</h3><p class="refs">Taba, in Djamolovna and Gopalan (2024); Lubicz-Nawrocka (2022)</p><p>A hybrid of Taba’s bottom-up model and curriculum co-creation shifts authority from the outside “expert” to learners, and avoids top-down models that centre colonial academic content.</p></div>
+        <div class="panel outline"><span class="dot bg-rose"></span><h3>Constructive alignment</h3><p class="refs">Biggs and Tang (2007); Churches (2008)</p><p>Each outcome has a clear verb, is activated through authentic practice like a mock deposit, and is verified through real-world performance instead of a written test.</p></div>
+      </div>
+    </section>
+
+    <section style="padding-top:40px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Assessment</span><h2>Oral, performative and fair to low-literacy learners</h2></div>
+      <div class="grid2">
+        <div class="panel bg-sage"><h3>What gets assessed, and how</h3><ul>
+          <li>Oral and performative tasks replace written tests, and they reflect real roles learners know: market trader and banking client.</li>
+          <li>Criteria are co-constructed with learners in Chichewa and English, and used for self- and peer-assessment.</li>
+          <li>The Session 5 market simulation is where LO2, LO3 and LO4 come together in one authentic task.</li>
+          <li>Ubuntu counts: a learner who supports a peer or models honest record-keeping is showing something as assessable as technical accuracy.</li></ul></div>
+        <div class="panel bg-sky"><h3>Using results to improve</h3><ul>
+          <li>Facilitator observation notes are reviewed after each session to spot patterns and adjust later sessions.</li>
+          <li>The closing reflection circle is both a formative assessment and a space for learners to say what helped or held them back.</li>
+          <li>Learners’ co-evaluation feeds the next version of the programme, following the action research spiral (Biggs and Tang, 2007).</li></ul></div>
+      </div>
+    </section>
+
+    <div class="row2"><span class="label">Working with AI</span><div class="body">
+      <p>I used Claude to draft the first learning outcomes and assessment criteria, and NotebookLM to work closely with my sources. As Sridhar et al. (2023) warn, AI-generated objectives tend to rely on broad Western assumptions, and Claude’s first drafts did.</p>
+      <p>I revised them using Bangura (2005), Waghid (2005) and Sichula and Genis (2019) so the outcomes reflect Ubuntu, communal ways of learning and the everyday lives of rural Zambian women. The decisions about the learners, the focus and the technology came from my own research.</p>
+    </div></div>
+    <div class="row2"><span class="label">What I learned</span><div class="body">
+      <p>Designing for an oral culture challenged my assumptions about what assessment looks like. It pushed me away from tests where learners report facts, towards assessment that is functional and performative, where learners put knowledge to work in their own lives.</p>
+      <p>It also showed me that constraints can be a catalyst. The limits of the context are what made this curriculum relevant.</p>
+    </div></div>
+
+    <div class="ctas" style="margin-block:8px 16px"><a class="btn primary" href="assets/adult-literacy-curriculum.pdf" target="_blank" rel="noopener">View the full curriculum table (PDF) ↗</a></div>
+    <p class="note">This is a conceptual design developed for my Postgraduate Diploma in Instructional Design. It has not been delivered to learners.</p>
+
     <a class="next" href="#daily-card"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>Daily Card: a co-designed job aid</h3></span><span class="arrow">→</span></a>
   </div>
 </div>
@@ -510,7 +635,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 <div data-page="daily-card">
   <div class="wrap">
     <a class="back" href="#work">← Back to all work</a>
-    <header class="cs-head">
+    <header class="cs-head band bg-sage">
       <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
       <h1>Daily Card: a co-designed job aid for a new admin assistant</h1>
       <p class="lead">A low-fidelity desk card that brings a new hire’s workflow and a tricky decision process into one familiar, paper-based tool, shaped with her at every step.</p>
@@ -522,10 +647,13 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       </div>
     </header>
 
-    <div class="row2"><span class="label">The context</span><div class="body">
-      <p>A new sales and admin assistant joined a natural stone wholesaler in Cape Town with no formal onboarding. There was no manual or training plan. She learned by watching a senior colleague as things came up.</p>
-      <p>She had built her own coping system from sticky notes, loose handwritten lists and a “brain dump” planning sheet. But every knowledge gap turned into a dependency. She had to ask a busy manager for discount rules, stock information and incoming order details, which slowed down her replies to clients.</p>
-    </div></div>
+    <div class="challenge">
+      <div class="head"><span class="label">The challenge</span><p class="q">A new admin assistant had to learn her role with no onboarding, so every gap in her knowledge became a wait for a busy manager.</p></div>
+      <div class="body">
+        <p>A new sales and admin assistant joined a natural stone wholesaler in Cape Town with no formal onboarding. There was no manual or training plan. She learned by watching a senior colleague as things came up.</p>
+        <p>She had built her own coping system from sticky notes, loose handwritten lists and a “brain dump” planning sheet. But every knowledge gap turned into a dependency. She had to ask a busy manager for discount rules, stock information and incoming order details, which slowed down her replies to clients.</p>
+      </div>
+    </div>
     <div class="row2"><span class="label">How we worked with her</span><div class="body">
       <p>She was a working adult with little time for formal interviews, so we used an asynchronous WhatsApp probe kit over four days. She shared photos, voice notes and messages whenever something felt relevant, in her own space and on her own schedule.</p>
       <p>The first round of prompts asked about her everyday workday. The second asked her to look back on her onboarding, for example: if a magic button could instantly explain one part of your job, what would it explain?</p>
@@ -620,13 +748,13 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
   document.querySelectorAll('[data-full],[data-mini]').forEach(fill);
 
   // Simple page routing on the hash
-  var pages={home:1,cotrace:1,'daily-card':1,'facilitator-module':1}, anchors={work:1,journal:1,journey:1,contact:1};
+  var pages={home:1,cotrace:1,'daily-card':1,'facilitator-module':1,'adult-literacy':1}, anchors={work:1,journal:1,journey:1,contact:1};
   function route(){
     var h=(location.hash||'#home').slice(1), page=pages[h]?h:'home';
     document.querySelectorAll('[data-page]').forEach(function(p){p.classList.toggle('active',p.dataset.page===page);});
     if(anchors[h]){var el=document.getElementById(h); if(el) el.scrollIntoView();}
     else window.scrollTo(0,0);
-    document.title = page==='cotrace' ? 'CoTrace · Zandaley Bothma' : page==='daily-card' ? 'Daily Card · Zandaley Bothma' : page==='facilitator-module' ? 'Facilitator Orientation Module · Zandaley Bothma' : 'Zandaley Bothma Portfolio';
+    document.title = page==='cotrace' ? 'CoTrace · Zandaley Bothma' : page==='daily-card' ? 'Daily Card · Zandaley Bothma' : page==='facilitator-module' ? 'Facilitator Orientation Module · Zandaley Bothma' : page==='adult-literacy' ? 'Adult Literacy Curriculum · Zandaley Bothma' : 'Zandaley Bothma Portfolio';
   }
   window.addEventListener('hashchange',route); route();
 
