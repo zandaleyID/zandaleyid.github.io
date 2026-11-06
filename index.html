@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zandaley Bothma Portfolio</title>
+<meta name="description" content="Learning design portfolio of Zandaley Bothma, instructional designer in Cape Town.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap">
+<style>
+/* Layout: one 1120px reading column; editorial serif headings, pastel blocks set off the moments that matter. */
+:root{
+  --bg:#FAF7F2; --surface:#FFFFFF; --ink:#2B2A28; --muted:#6B675F; --line:#E6E0D6; --solid:#2B2A28; --on-solid:#FAF7F2;
+  --lilac:#E7E0F5; --peach:#F8E3D4; --sage:#DDEADF; --sky:#DCE8F4; --butter:#F6EDCB; --rose:#F4DEE4;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --shadow:0 12px 32px rgba(43,42,40,.10);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1E1D1B; --surface:#282624; --ink:#F2EEE7; --muted:#B3ACA1; --line:#3A3733; --solid:#F2EEE7; --on-solid:#1E1D1B;
+  --lilac:#3A3450; --peach:#4A382D; --sage:#2F4236; --sky:#2C3B4B; --butter:#463F2B; --rose:#4A3038;
+  --shadow:0 12px 32px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1E1D1B; --surface:#282624; --ink:#F2EEE7; --muted:#B3ACA1; --line:#3A3733; --solid:#F2EEE7; --on-solid:#1E1D1B;
+  --lilac:#3A3450; --peach:#4A382D; --sage:#2F4236; --sky:#2C3B4B; --butter:#463F2B; --rose:#4A3038;
+  --shadow:0 12px 32px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px));box-sizing:content-box}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,5vw,3.4rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:600}
+h3{font-size:1.5rem;font-weight:600;line-height:1.22}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+.label{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:44rem}
+.muted{color:var(--muted)}
+.tag{display:inline-block;font-size:.8rem;font-weight:500;padding:5px 14px;border-radius:999px;background:var(--lilac);color:var(--ink);line-height:1.4}
+.bg-lilac{background:var(--lilac)}.bg-peach{background:var(--peach)}.bg-sage{background:var(--sage)}.bg-sky{background:var(--sky)}.bg-butter{background:var(--butter)}.bg-rose{background:var(--rose)}
+
+/* nav */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:28px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:600;font-size:1.3rem;text-decoration:none}
+.links{display:flex;gap:28px;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:1rem}
+.links a:hover{color:var(--ink)}
+
+section{padding-block:72px}
+.stack{display:flex;flex-direction:column;gap:24px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:center;padding-block:40px 96px}
+.hero .stack>*{min-width:0}
+.photo{width:100%;max-width:360px;aspect-ratio:4/5;object-fit:cover;border-radius:32px;background:var(--lilac);display:block}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid var(--ink);line-height:1.3}
+.btn.primary{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+.btn:hover{transform:translateY(-1px)}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+
+/* work grid */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.thumb{height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb.logo{background:#FFFFFF}
+.thumb.logo img{object-fit:contain;padding:24px 40px}
+.thumb .soon{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--muted)}
+.card .body{padding:28px 32px 32px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card .body p{color:var(--muted);font-size:1.02rem}
+.more{font-weight:600;font-size:.95rem;margin-top:auto;padding-top:4px}
+
+/* journey */
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.tile{border-radius:24px;padding:30px 28px;display:flex;flex-direction:column;gap:10px}
+.tile h3{font-size:1.3rem}
+.tile p{font-size:.98rem;line-height:1.6}
+
+/* contact */
+.contact{background:var(--solid);color:var(--on-solid);border-radius:32px;padding:clamp(36px,6vw,72px);display:flex;flex-direction:column;gap:18px}
+.contact h2{font-weight:400;max-width:36rem}
+.contact .row{display:flex;gap:28px;flex-wrap:wrap;padding-top:8px;font-weight:600}
+.contact a{color:var(--on-solid)}
+.copy{background:transparent;border:1.5px solid currentColor;color:var(--on-solid);border-radius:999px;padding:4px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+
+/* case study */
+.back{color:var(--muted);text-decoration:none;font-weight:500}
+.cs-head{padding-block:32px 48px;display:flex;flex-direction:column;gap:22px}
+.cs-title{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.cs-logo{width:240px;max-width:100%;border-radius:24px;background:#FFFFFF;border:1px solid var(--line);padding:18px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-top:28px;border-bottom:1px solid var(--line);padding-bottom:40px}
+.facts div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.facts p{font-size:1rem;line-height:1.5}
+.row2{display:grid;grid-template-columns:240px minmax(0,1fr);gap:64px;padding-block:44px}
+.row2 .body{display:flex;flex-direction:column;gap:18px;max-width:46rem}
+.callout{border-radius:28px;padding:clamp(32px,5vw,56px) clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:18px}
+.callout .big{font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.25;max-width:52rem;text-wrap:balance}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.panel{border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;gap:12px}
+.panel ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px;font-size:1rem}
+.panel .sub{font-style:italic;color:var(--muted);font-size:.98rem}
+.panel.outline{background:var(--surface);border:1px solid var(--line)}
+.panel.solid{background:var(--solid);color:var(--on-solid)}
+.dot{width:14px;height:14px;border-radius:50%}
+.refs{font-style:italic;color:var(--muted);font-size:.9rem;line-height:1.45}
+.panel.solid .refs{color:inherit;opacity:.8}
+.signals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.signals div{background:var(--surface);border-radius:16px;padding:20px 22px}
+.signals strong{display:block;font-size:1.05rem}
+.signals span{color:var(--muted);font-size:.95rem}
+.next{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:36px 44px;text-decoration:none;margin-block:24px 96px}
+.next:hover{box-shadow:var(--shadow)}
+.next .arrow{font-family:var(--display);font-size:2.4rem}
+.cap{font-style:italic;color:var(--muted);font-size:.95rem}
+
+/* Daily card mockup */
+.stage{border-radius:28px;background:var(--butter);padding:48px 24px;display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.paper{background:#FFFFFF;color:#2B2A28;width:380px;max-width:100%;border-radius:8px;box-shadow:0 12px 32px rgba(43,42,40,.14);padding:24px;display:flex;flex-direction:column;gap:12px;font-size:11px;line-height:1.35}
+.paper .t{display:flex;justify-content:space-between;align-items:baseline}
+.paper .t b{font-family:var(--display);font-size:17px}
+.zone{display:flex;gap:8px;align-items:center;font-weight:600;font-size:12px}
+.zone i{font-style:normal;font-weight:500;padding:3px 10px;border-radius:999px}
+.tbl{border-radius:8px;padding:8px;display:grid;gap:4px}
+.tbl div{display:grid;gap:4px}
+.tbl span{background:#FFFFFF;border:1px solid #E6E0D6;height:20px;border-radius:2px;font-weight:600;font-size:8.5px;padding:3px 4px;overflow:hidden;white-space:nowrap}
+.tbl .r span{opacity:.7}
+.step{background:#F4DEE4;border-radius:8px;padding:9px 12px}
+.step b{display:block;font-size:11px}
+.step em{color:#6B675F;font-size:10px}
+.z1{background:#DCE8F4}.z2{background:#DDEADF}.z3{background:#F4DEE4}
+
+[data-page]{display:none}
+[data-page].active{display:block}
+footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .photo{max-width:300px}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row2{grid-template-columns:1fr;gap:16px}
+  .grid3,.signals{grid-template-columns:1fr}
+  .cs-title{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  section{padding-block:56px}
+  .grid2,.grid4{grid-template-columns:1fr}
+  .links{gap:18px}
+  .next{padding:28px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.btn:hover,a.card:hover{transform:none}}
+</style>
+
+<style>img{max-width:100%}html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#home">Zandaley Bothma</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</div>
+
+<main>
+<!-- HOME -->
+<div data-page="home" class="active">
+  <div class="wrap">
+    <div class="hero">
+      <div class="stack">
+        <span class="tag" style="align-self:flex-start">Instructional designer · Cape Town, South Africa</span>
+        <h1>An instructional designer who brings eight years of education experience to AI-integrated learning.</h1>
+        <p class="lead">I design learning around real people and real contexts: a new hire’s workflow, adult learners in a rural community, young learners online. Right now I’m focused on how AI can support learning without doing the thinking for the learner.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#work">View my work</a>
+          <a class="btn" href="assets/Zandaley-Bothma-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+        <div class="chips">
+          <span class="tag bg-peach">Curriculum design</span>
+          <span class="tag bg-sage">Co-design and job aids</span>
+          <span class="tag bg-sky">Multimodal learning</span>
+          <span class="tag bg-lilac">AI-integrated learning</span>
+        </div>
+      </div>
+      <img class="photo" src="assets/headshot.jpg" alt="Portrait of Zandaley Bothma" width="360" height="450">
+    </div>
+  </div>
+
+  <section id="work" class="wrap">
+    <div class="stack" style="gap:12px;margin-bottom:36px">
+      <h2>Selected work</h2>
+      <p class="muted">Four projects that show how I design for different people and contexts.</p>
+    </div>
+    <div class="grid2">
+      <a class="card" href="#cotrace">
+        <div class="thumb logo"><img src="assets/cotrace-logo.png" alt="CoTrace logo showing the Explore, Draft and Refine phases"></div>
+        <div class="body">
+          <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning</span>
+          <h3>CoTrace</h3>
+          <p>A concept platform that makes human–AI collaboration visible in assessment, capturing the moments learners challenge, reject or rethink AI suggestions.</p>
+          <span class="more">Read case study →</span>
+        </div>
+      </a>
+      <a class="card" href="#daily-card">
+        <div class="thumb bg-butter" aria-hidden="true">
+          <div style="transform:scale(.42);transform-origin:center;display:flex;gap:28px;pointer-events:none" data-mini></div>
+        </div>
+        <div class="body">
+          <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
+          <h3>Daily Card: a co-designed job aid</h3>
+          <p>A low-fidelity desk card co-designed with a new admin assistant who was learning her role with no formal onboarding.</p>
+          <span class="more">Read case study →</span>
+        </div>
+      </a>
+      <div class="card">
+        <div class="thumb"><img src="assets/curriculum-plan.png" alt="Extract from the curriculum and assessment plan" style="object-position:top left"></div>
+        <div class="body">
+          <span class="tag bg-peach" style="align-self:flex-start">Curriculum design · Conceptual</span>
+          <h3>Adult literacy curriculum</h3>
+          <p>A conceptual functional literacy and English programme for rural women in Zambia, built around andragogy, Ubuntu and translanguaging.</p>
+          <span class="more muted">Case study coming soon</span>
+        </div>
+      </div>
+      <a class="card" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener">
+        <div class="thumb bg-sky"><img src="assets/journal.jpg" alt="The multimodal journal website, showing its contents menu and an introduction video" style="object-position:top left"></div>
+        <div class="body">
+          <span class="tag bg-sky" style="align-self:flex-start">Multimodal learning</span>
+          <h3>Multimodal journal</h3>
+          <p>An LMS-style reflective journal website I designed and built myself, teaching myself to code it with AI assistance.</p>
+          <span class="more">Visit the journal ↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="journey" class="wrap">
+    <div class="stack" style="gap:12px;margin-bottom:36px">
+      <h2>My journey into learning design</h2>
+      <p class="lead">Eight years in education, from university writing support to classrooms in Hanoi and online, taught me how learners actually respond to a lesson. That’s still the first thing I design for.</p>
+    </div>
+    <div class="grid4">
+      <div class="tile bg-sky">
+        <span class="label">2017–2018 · University of the Free State</span>
+        <h3>Academic literacy facilitator and writing consultant</h3>
+        <p>With the Unit for Language Development (2018), I taught first-year business economics students academic English, business vocabulary and project work. At the Centre for Teaching and Learning’s Writing Centre (2017–2018), I helped students one-on-one with structure, academic literacy and referencing.</p>
+      </div>
+      <div class="tile bg-butter">
+        <span class="label">2019–2025 · Hanoi, Vietnam</span>
+        <h3>ESL and secondary English teacher</h3>
+        <p>Taught kindergarten to Grade 7 with Language Link Vietnam and created original materials for each class. Named Teacher of the Year at Ly Thai To Secondary School (Semester 1, 2024–2025).</p>
+      </div>
+      <div class="tile bg-rose">
+        <span class="label">2020, 2025–present · Remote</span>
+        <h3>Online English teacher</h3>
+        <p>Live one-on-one lessons for learners aged 5 to 16 with Nice Tutor via ClassIn, working across time zones from South Africa.</p>
+      </div>
+      <div class="tile bg-lilac">
+        <span class="label">Qualifications</span>
+        <h3>Learning design, journalism and TEFL</h3>
+        <p>Postgraduate Diploma in Instructional Design (in progress), a Bachelor of Journalism from Rhodes University, and a 150-hour TEFL/TESOL certificate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap" style="padding-top:24px">
+    <div class="contact">
+      <h2>Let’s design something people will actually use.</h2>
+      <p>Open to entry-level instructional design and learning design roles, remote or in Cape Town.</p>
+      <div class="row">
+        <span><a href="mailto:zandaley@gmail.com">zandaley@gmail.com</a> <button class="copy" type="button" id="copy-email">Copy</button></span>
+        <a href="https://www.linkedin.com/in/zandaley-bothma-1b040b372/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener">Journal ↗</a>
+        <a href="assets/Zandaley-Bothma-CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- COTRACE -->
+<div data-page="cotrace">
+  <div class="wrap">
+    <a class="back" href="#work">← Back to all work</a>
+    <header class="cs-head">
+      <div class="cs-title">
+        <div class="stack" style="gap:20px">
+          <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning · Concept in progress</span>
+          <h1>CoTrace: making human–AI collaboration visible</h1>
+          <p class="lead">A concept platform that captures the moments students question, reject or rethink AI suggestions, and turns them into reflection that can be assessed.</p>
+        </div>
+        <img class="cs-logo" src="assets/cotrace-logo.png" alt="CoTrace logo">
+      </div>
+      <div class="facts">
+        <div><span class="label">Status</span><p>Concept document, version 3 (2026)</p></div>
+        <div><span class="label">Learners</span><p>Humanities undergraduates and their educators</p></div>
+        <div><span class="label">Grounding</span><p>Generativism, affordances and constraints, care ethics</p></div>
+        <div><span class="label">Outputs</span><p>Concept document, facilitator wireframe, brand identity</p></div>
+      </div>
+    </header>
+
+    <div class="row2"><span class="label">The problem</span><div class="body">
+      <p>Generative AI could be a powerful thinking partner for students, but in most tertiary settings there’s very little structure around how it’s used. Without that structure, students tend to reach for AI’s most visible feature, generating text, rather than its most valuable one: questioning and pushing their thinking.</p>
+      <p>Asking students to explain their thinking after the fact doesn’t solve this. It adds admin for students and educators, and a reflection written at the end rarely captures what actually happened along the way.</p>
+    </div></div>
+    <div class="row2"><span class="label">What CoTrace does</span><div class="body">
+      <p>CoTrace documents decisions, revisions and turning points as they happen. When a student changes direction, challenges an AI suggestion or rethinks an argument, CoTrace prompts them to explain what happened and why, gradually helping them notice these moments on their own.</p>
+      <p>It isn’t a surveillance tool, and it doesn’t claim to guarantee academic integrity. It’s designed to create better conditions for genuine engagement than unstructured AI use, and to make the process visible enough to assess.</p>
+    </div></div>
+
+    <section style="padding-bottom:40px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The student experience</span><h2>Each section of an assignment moves through three phases</h2></div>
+      <div class="grid3">
+        <div class="panel bg-sky"><span class="label">Phase 1</span><h3>Explore</h3><p class="sub">AI as a Socratic opponent</p>
+          <ul><li>The AI questions, pushes back and surfaces productive tension</li><li>Three-panel workspace: AI dialogue, sources and saved notes</li><li>Confusion detection plus an “I’m stuck” button for guided source exploration</li></ul></div>
+        <div class="panel bg-sage"><span class="label">Phase 2</span><h3>Draft</h3><p class="sub">The student’s own writing comes first</p>
+          <ul><li>The student writes their own section from what they explored</li><li>A deliberately narrower AI panel signals that the AI doesn’t lead here</li><li>The AI stays available for questions only</li></ul></div>
+        <div class="panel bg-peach"><span class="label">Phase 3</span><h3>Refine</h3><p class="sub">Supportive mode, never rewriting</p>
+          <ul><li>The AI flags areas to look at and asks guiding questions</li><li>Checks for academic tone, cohesion and referencing, each a question rather than a correction</li><li>Every improvement is made by the student</li></ul></div>
+      </div>
+    </section>
+
+    <div class="callout bg-lilac">
+      <span class="label">How reflection is triggered</span>
+      <p class="big">Three signals mark a significant learning moment</p>
+      <div class="signals">
+        <div><strong>Divergence</strong><span>The student moves away from an AI suggestion</span></div>
+        <div><strong>Pushback</strong><span>The student explicitly challenges the AI</span></div>
+        <div><strong>Reconsideration</strong><span>The student revises their argument or direction</span></div>
+      </div>
+      <p>When a signal is detected, a reflection popup asks a question matched to the phase: conceptual shifts in Explore, compositional decisions in Draft, editorial judgement in Refine. Students can also log a reflection at any time. Early on the AI does the noticing; over time, students learn to notice for themselves.</p>
+    </div>
+
+    <div class="row2"><span class="label">Navigation and submission</span><div class="body">
+      <p>A persistent navigation bar shows the three phases. Students can always move back, and work saves automatically, but forward movement is gated: Draft unlocks after Explore, and Refine unlocks after Draft is submitted.</p>
+      <p>Each section ends with a summary of signals, reflections and sources, where every number links to the moments behind it. At submission, a timestamped, non-editable reflection document sits beside the editable final draft, and both go to the marker together.</p>
+    </div></div>
+
+    <section style="padding-top:24px;padding-bottom:24px">
+      <div class="callout bg-sky" id="wireframe">
+        <span class="label">Wireframe</span>
+        <p class="big">See how the three phases come together on screen</p>
+        <p style="max-width:48rem">This is the Explore screen, where students work with AI as a Socratic opponent. The annotations show the design decisions behind it.</p>
+        <figure style="margin:8px 0 0;display:flex;flex-direction:column;gap:12px">
+          <img src="assets/cotrace-wireframe.png" alt="CoTrace Explore screen wireframe with three panels: AI dialogue in Socratic mode with an I'm stuck button, sources with suggested exploration prompts, and saved notes. Annotations explain gated phase navigation, phase-adaptive reflection prompts, and a reflection pop-up that appears less often over time." style="width:100%;border-radius:16px;border:1px solid var(--line);background:#FFFFFF;display:block" loading="lazy">
+          <figcaption class="cap" style="max-width:48rem">The reflection pop-up appears less often over time, so students gradually take over the job of noticing significant moments themselves. The “I’m stuck” button lets them ask for help on their own terms.</figcaption>
+        </figure>
+        <div class="ctas"><a class="btn primary" href="https://whimsical.com/cotrace-wireframe/cotrace-wireframe-QnKkgC2MHygkDQVKBLRUVP" target="_blank" rel="noopener">Open the full wireframe ↗</a></div>
+      </div>
+    </section>
+
+    <section style="padding-bottom:40px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The pedagogy underneath</span><h2>Every feature is a deliberate design constraint</h2>
+        <p class="lead">CoTrace doesn’t change what AI can do. It changes the context students meet AI in, making the learning uses easy to reach and passive consumption harder to reach.</p></div>
+      <div class="grid3">
+        <div class="panel outline"><span class="dot bg-sky"></span><h3>Affordances and constraints</h3><p class="refs">Day and Lloyd (2007)</p><p>AI’s potential for critical thinking isn’t enough on its own; structure and guidance are what turn that potential into learning. CoTrace is a constraint architecture: the phase cycle, gated navigation and required reflections all steer students towards AI as a thinking partner.</p></div>
+        <div class="panel outline"><span class="dot bg-sage"></span><h3>Generativism</h3><p class="refs">Pratschke (2024); EDGIM; AIAS levels 3–4 (Perkins et al., 2024)</p><p>Learning with AI means actively generating meaning rather than consuming output. The repeating three-phase cycle puts students in the role of directing AI, not receiving from it.</p></div>
+        <div class="panel outline"><span class="dot bg-lilac"></span><h3>Metacognitive agency</h3><p class="refs">Roe and Perkins (2024); Bearman et al. (2024)</p><p>Real agency depends on students noticing their own thinking. Phase-specific reflection questions build that awareness, and the timestamped reflection record supports evaluative judgement through repeated cycles.</p></div>
+        <div class="panel outline"><span class="dot bg-peach"></span><h3>Care ethics</h3><p class="refs">Olesova, Yu and Garcia de Hurtado (2025); Noddings</p><p>Good support preserves the learner’s own capability. That’s why the Refine AI asks rather than corrects, and why support is gradually withdrawn as students grow more capable.</p></div>
+        <div class="panel outline"><span class="dot bg-butter"></span><h3>Multimodality</h3><p class="refs">Kress; Mayer’s multimedia principle (future direction)</p><p>Content comes as text and audio, and students can type or speak their reflections, since spoken reflection is often faster and more candid. Visual argument maps are a possible next step, not yet a commitment.</p></div>
+        <div class="panel solid"><h3>What it doesn’t claim</h3><p class="refs">Corbin et al. (2025)</p><p>AI and assessment is a wicked problem. CoTrace can’t guarantee genuine engagement. It aims for something smaller and more defensible: better conditions for it, and a process visible enough to assess.</p></div>
+      </div>
+    </section>
+
+    <section style="padding-top:32px;padding-bottom:40px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Pilot plan</span><h2>Testing the pedagogy before building the platform</h2></div>
+      <div class="grid3">
+        <div class="panel bg-sky"><h3>Who</h3><p>Second- or third-year humanities undergraduates: grounded enough to describe their experience, with enough of their degree left to benefit from the scaffold.</p></div>
+        <div class="panel bg-sage"><h3>How</h3><p>Each participant completes one assignment section through a manually facilitated simulation of the three-phase cycle, using existing AI tools. A D2L Brightspace sandbox stands in for CoTrace features, and sessions are observed in real time.</p></div>
+        <div class="panel bg-peach"><h3>What success looks like</h3><ul><li>Questioning AI output without being prompted</li><li>Explaining rejected or changed AI suggestions unasked</li><li>Spotting moments of tension or divergence independently</li></ul><p class="muted" style="font-size:.95rem">Observation is weighted above the follow-up survey.</p></div>
+      </div>
+    </section>
+
+    <a class="next" href="#daily-card"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>Daily Card: a co-designed job aid</h3></span><span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- DAILY CARD -->
+<div data-page="daily-card">
+  <div class="wrap">
+    <a class="back" href="#work">← Back to all work</a>
+    <header class="cs-head">
+      <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
+      <h1>Daily Card: a co-designed job aid for a new admin assistant</h1>
+      <p class="lead">A low-fidelity desk card that brings a new hire’s workflow and a tricky decision process into one familiar, paper-based tool, shaped with her at every step.</p>
+      <div class="facts">
+        <div><span class="label">My role</span><p>Project manager in a team of three</p></div>
+        <div><span class="label">Method</span><p>Co-design with a WhatsApp probe kit and two feedback rounds</p></div>
+        <div><span class="label">Frameworks</span><p>Merrill’s First Principles, SAM, care ethics</p></div>
+        <div><span class="label">Output</span><p>Double-sided A4 desk card (low fidelity)</p></div>
+      </div>
+    </header>
+
+    <div class="row2"><span class="label">The context</span><div class="body">
+      <p>A new sales and admin assistant joined a natural stone wholesaler in Cape Town with no formal onboarding. There was no manual or training plan. She learned by watching a senior colleague as things came up.</p>
+      <p>She had built her own coping system from sticky notes, loose handwritten lists and a “brain dump” planning sheet. But every knowledge gap turned into a dependency. She had to ask a busy manager for discount rules, stock information and incoming order details, which slowed down her replies to clients.</p>
+    </div></div>
+    <div class="row2"><span class="label">How we worked with her</span><div class="body">
+      <p>She was a working adult with little time for formal interviews, so we used an asynchronous WhatsApp probe kit over four days. She shared photos, voice notes and messages whenever something felt relevant, in her own space and on her own schedule.</p>
+      <p>The first round of prompts asked about her everyday workday. The second asked her to look back on her onboarding, for example: if a magic button could instantly explain one part of your job, what would it explain?</p>
+      <p>We mapped the power dynamics carefully. Senior management were consulted only for content knowledge, such as how the discount system works. She kept authority over the design decisions, and we were open with her about who we had consulted.</p>
+    </div></div>
+
+    <div class="callout bg-sage">
+      <span class="label">Key insight</span>
+      <p class="big">She already had a system. It just had nothing solid behind it.</p>
+      <p style="max-width:48rem">Instead of replacing her sticky notes and brain dump sheet, the job aid would extend them by bringing what she was already tracking into one familiar, low-stakes paper tool she could rely on without asking first.</p>
+    </div>
+
+    <div class="row2"><span class="label">What we designed</span><div class="body">
+      <p>The Daily Card is a double-sided A4 card that sits on her desk. Side A is a daily workflow sheet with two zones: incoming orders and stock allocation. Side B is the microlearning piece, a step-by-step discount guide for quoting damaged stone slabs. It starts by teaching her to tell structural damage from cosmetic damage, then walks her through the decision, and ends with a clear checklist for when to escalate.</p>
+      <p>We used Merrill’s First Principles to shape what the card teaches, from real-world tasks to applying the rules independently, and SAM to keep iterating quickly with her. The blank percentage fields on the discount guide are filled in once with her manager, so the rules become hers to apply.</p>
+    </div></div>
+
+    <figure style="margin:0 0 48px;display:flex;flex-direction:column;gap:12px">
+      <div class="stage" data-full></div>
+      <figcaption class="cap">A simplified recreation of the Version 2 card. Business details have been removed.</figcaption>
+    </figure>
+
+    <div class="row2" style="padding-bottom:28px"><span class="label">Testing and iteration</span><div class="body">
+      <p>We shared Version 1 as a PDF in the same WhatsApp group and asked open questions: what works, what feels confusing, what you wouldn’t realistically use. Her response was enthusiastic, and she was also very specific about what didn’t match how she actually works.</p>
+    </div></div>
+    <div class="grid2" style="margin-bottom:24px">
+      <div class="panel bg-sky"><h3>What changed in Version 2</h3><ul>
+        <li>Zone 1 columns reordered to match her workflow, with material and block number split and a new slab column</li>
+        <li>Delivery date removed, since the card is printed daily</li>
+        <li>Zone 2 rebuilt from her own rough sketch, with a dedicated layout for tombstone orders we hadn’t anticipated</li>
+        <li>More intentional colour-coding, because she said the colour helped</li></ul></div>
+      <div class="panel bg-peach"><h3>What stayed the same</h3><ul>
+        <li>The step-by-step structure of the discount guide, which she said worked well for her</li>
+        <li>Severely damaged slabs were added to the escalation checklist rather than given a new step, since they always need a manager</li></ul></div>
+    </div>
+
+    <div class="callout bg-butter" style="margin-block:16px 8px">
+      <span class="label">Outcome</span>
+      <p class="big">The project led the company to create a formal SOP for the role.</p>
+      <p style="max-width:48rem">Co-designing the card made the missing onboarding visible. After I raised it with management, the company created a standard operating procedure for the role, so the next person won’t have to piece it together alone.</p>
+    </div>
+
+    <div class="row2"><span class="label">My role</span><div class="body">
+      <p>I managed our team of three throughout the project, coordinating the plan, the division of work and the timeline across the co-design sessions, prototyping and iteration.</p>
+    </div></div>
+    <div class="row2"><span class="label">What I learned</span><div class="body">
+      <p>We expected the problem to be about access to information. Through co-design we saw how much of it was about confidence: she needed to feel allowed to act without checking with management first. That changed the tone and framing of the card, even though the format stayed similar.</p>
+      <p>I also came away questioning our own solution. A well-designed job aid can quietly let an organisation off the hook for the onboarding it never provided. Naming that tension openly with management is what led to the SOP, which taught me that part of a learning designer’s job is pointing at the gap behind the request.</p>
+    </div></div>
+
+    <a class="next" href="#cotrace"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>CoTrace</h3></span><span class="arrow">→</span></a>
+  </div>
+</div>
+</main>
+
+<footer class="wrap">© 2026 Zandaley Bothma · Cape Town, South Africa</footer>
+
+<template id="card-mock">
+  <div class="paper">
+    <div class="t"><b>Daily Card</b><span style="color:#6B675F">Date: ________</span></div>
+    <div class="zone"><i class="z1">Zone 1</i>Incoming orders</div>
+    <div class="tbl z1" data-cols="Client,Qty,Material,Block no.,Slab" data-rows="4"></div>
+    <div class="zone"><i class="z2">Zone 2</i>Stock allocation</div>
+    <div class="tbl z2" data-cols="Date,Invoice,D. note,Qty,Item,Size" data-rows="5"></div>
+  </div>
+  <div class="paper">
+    <div class="zone"><i class="z3">Zone 3</i>Discount guide</div>
+    <div class="step"><b>Step 0 · Read the slab first</b><em>Structural or cosmetic damage?</em></div>
+    <div class="step"><b>Step 1 · Identify the damage type</b><em>Crack → Step 2 · Corner or edge → Step 3</em></div>
+    <div class="step"><b>Step 2 · Can the client work around it?</b><em>____% off agreed with ________</em></div>
+    <div class="step"><b>Step 3 · Measure and deduct</b><em>Measure → subtract → price the quoted size</em></div>
+    <div style="display:flex;flex-direction:column;gap:3px"><b>When to escalate</b>
+      <span style="color:#6B675F">• Unsure if damage is structural or cosmetic</span>
+      <span style="color:#6B675F">• Crack affects more than half the slab</span>
+      <span style="color:#6B675F">• Client pushes back on the discount</span>
+      <span style="color:#6B675F">• Severely damaged slab or multiple defects</span></div>
+  </div>
+</template>
+
+<script>
+(function(){
+  // Build the Daily Card mockups
+  var tpl=document.getElementById('card-mock');
+  function fill(target){
+    target.appendChild(tpl.content.cloneNode(true));
+    target.querySelectorAll('.tbl').forEach(function(t){
+      var cols=t.dataset.cols.split(','), rows=+t.dataset.rows, tmpl='repeat('+cols.length+',1fr)';
+      for(var r=0;r<=rows;r++){var d=document.createElement('div'); d.style.gridTemplateColumns=tmpl; if(r) d.className='r';
+        cols.forEach(function(c){var s=document.createElement('span'); s.textContent=r?'':c; d.appendChild(s);}); t.appendChild(d);}
+    });
+  }
+  document.querySelectorAll('[data-full],[data-mini]').forEach(fill);
+
+  // Simple page routing on the hash
+  var pages={home:1,cotrace:1,'daily-card':1}, anchors={work:1,journey:1,contact:1};
+  function route(){
+    var h=(location.hash||'#home').slice(1), page=pages[h]?h:'home';
+    document.querySelectorAll('[data-page]').forEach(function(p){p.classList.toggle('active',p.dataset.page===page);});
+    if(anchors[h]){var el=document.getElementById(h); if(el) el.scrollIntoView();}
+    else window.scrollTo(0,0);
+    document.title = page==='cotrace' ? 'CoTrace · Zandaley Bothma' : page==='daily-card' ? 'Daily Card · Zandaley Bothma' : 'Zandaley Bothma Portfolio';
+  }
+  window.addEventListener('hashchange',route); route();
+
+  // Copy email
+  var btn=document.getElementById('copy-email');
+  btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy';},1800);};
+    try{navigator.clipboard.writeText('zandaley@gmail.com').then(done,function(){btn.textContent='Select and copy';});}
+    catch(e){btn.textContent='Select and copy';}
+  });
+})();
+</script>
+
+</body>
+</html>
