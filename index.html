@@ -89,8 +89,10 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 @media (max-width:900px){.units{grid-template-columns:repeat(2,minmax(0,1fr))}.card.feature{flex-direction:column}.card.feature .thumb{flex:none;height:180px}}
 @media (max-width:640px){.gallery,.units{grid-template-columns:1fr}}
 
-.journal{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center;background:var(--sky);border-radius:32px;padding:clamp(24px,4vw,48px)}
+.journal{display:block;background:var(--sky);border-radius:32px;padding:clamp(24px,4vw,48px)}
 .journal .stack>*{min-width:0}
+.journal .jimg{margin-block:8px 12px}
+.journal p,.journal .teaser{max-width:48rem}
 .teaser{display:flex;flex-direction:column;gap:4px;background:var(--surface);border-radius:16px;padding:16px 20px;text-decoration:none;border:1px solid var(--line)}
 .teaser strong{font-family:var(--display);font-size:1.3rem;font-weight:600}
 .teaser span:last-child{color:var(--muted);font-size:.98rem;line-height:1.5}
@@ -281,10 +283,10 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 
   <section id="journal" class="wrap" style="padding-top:24px">
     <div class="journal">
-      <a class="jimg" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener"><img src="assets/journal.jpg" alt="The multimodal journal website, showing its contents menu and an introduction video" loading="lazy"></a>
       <div class="stack" style="gap:16px">
         <span class="label">Multimodal journal</span>
         <h2>See how I think as a designer</h2>
+        <a class="jimg" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener"><img src="assets/journal.jpg" alt="The multimodal journal website, showing its contents menu and an introduction video" loading="lazy"></a>
         <p>My multimodal journal is where I work through my design thinking in the open, through writing, video and visuals. It traces the questions, tensions and decisions behind projects like CoTrace, and how my practice has grown across my diploma.</p>
         <p class="muted" style="font-size:1rem">I designed it as an LMS-style website and taught myself to build it with AI assistance.</p>
         <a class="teaser" href="https://zandaleyid.github.io/journal/#/entry-10" target="_blank" rel="noopener"><strong>Final Reflection</strong><span>Where I bring together the key ideas from the journal, what I’ve learned, and where I want to go next as a designer.</span></a>
