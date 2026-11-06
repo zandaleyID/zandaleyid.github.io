@@ -63,16 +63,17 @@ section{padding-block:72px}
 .chips{display:flex;gap:10px;flex-wrap:wrap}
 
 /* work grid */
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
 a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.thumb{height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.thumb{height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .thumb.logo{background:#FFFFFF}
-.thumb.logo img{object-fit:contain;padding:24px 40px}
+.thumb.logo img{object-fit:contain;padding:18px 48px}
 .thumb .soon{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--muted)}
-.card .body{padding:28px 32px 32px;display:flex;flex-direction:column;gap:12px;flex:1}
-.card .body p{color:var(--muted);font-size:1.02rem}
+.card .body{padding:22px 26px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.3rem}
+.card .body p{color:var(--muted);font-size:.95rem;line-height:1.55}
 .more{font-weight:600;font-size:.95rem;margin-top:auto;padding-top:4px}
 
 /* journey */
@@ -212,7 +213,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       </a>
       <a class="card" href="#daily-card">
         <div class="thumb bg-butter" aria-hidden="true">
-          <div style="transform:scale(.42);transform-origin:center;display:flex;gap:28px;pointer-events:none" data-mini></div>
+          <div style="transform:scale(.32);transform-origin:center;display:flex;gap:28px;pointer-events:none" data-mini></div>
         </div>
         <div class="body">
           <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
