@@ -37,7 +37,7 @@ p{margin:0}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
 .label{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.lead{font-size:1.15rem;color:var(--muted);max-width:44rem}
+.lead{font-size:1.15rem;color:var(--muted)}
 .muted{color:var(--muted)}
 .tag{display:inline-block;font-size:.8rem;font-weight:500;padding:5px 14px;border-radius:999px;background:var(--lilac);color:var(--ink);line-height:1.4}
 .bg-lilac{background:var(--lilac)}.bg-peach{background:var(--peach)}.bg-sage{background:var(--sage)}.bg-sky{background:var(--sky)}.bg-butter{background:var(--butter)}.bg-rose{background:var(--rose)}
@@ -93,6 +93,8 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .journal .stack>*{min-width:0}
 .journal .jimg{margin-block:8px 12px}
 .journal p,.journal .teaser{max-width:48rem}
+.journal .stack{max-width:52rem;margin-inline:auto}
+.journal p,.journal .teaser{max-width:none}
 .teaser{display:flex;flex-direction:column;gap:4px;background:var(--surface);border-radius:16px;padding:16px 20px;text-decoration:none;border:1px solid var(--line)}
 .teaser strong{font-family:var(--display);font-size:1.3rem;font-weight:600}
 .teaser span:last-child{color:var(--muted);font-size:.98rem;line-height:1.5}
