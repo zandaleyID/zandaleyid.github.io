@@ -84,6 +84,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);background:#FFFFFF;display:block}
 .units{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .units .panel{padding:26px 24px}
+.flips.units{gap:16px}
 .units .panel p{font-size:.95rem}
 .units .k{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 @media (max-width:900px){.units{grid-template-columns:repeat(2,minmax(0,1fr))}.card.feature{flex-direction:column}.card.feature .thumb{flex:none;height:180px}}
@@ -103,6 +104,22 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .jimg:hover{transform:translateY(-3px)}
 .jimg img{display:block;width:100%}
 @media (max-width:900px){.journal{grid-template-columns:1fr;gap:28px}}
+
+.stock{position:relative}
+.stock-tag{position:absolute;right:10px;bottom:10px;font-size:.7rem;font-weight:600;letter-spacing:.03em;line-height:1;background:rgba(20,20,20,.6);color:#FFFFFF;padding:5px 9px;border-radius:999px;pointer-events:none}
+.photos{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;margin-top:32px}
+.photos figure{margin:0;border-radius:24px;overflow:hidden;height:380px}
+.photos img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:640px){.photos{grid-template-columns:1fr}.photos figure{height:260px}}
+
+.sphoto{display:block;margin:-28px -26px 6px;height:150px;border-radius:23px 23px 0 0;overflow:hidden;position:relative}
+.sphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.sphoto.ph{display:grid;place-items:center}
+.sphoto.ph svg{width:44px;height:44px;color:var(--ink);opacity:.55}
+
+.lotags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px}
+.lolab{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.lochip{font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px;color:var(--ink)}
 
 /* journey */
 .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
@@ -136,7 +153,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .ico svg{color:var(--ink)}
 .flip .face .ico{margin-bottom:4px}
 ul.pts{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;font-size:.95rem;line-height:1.5}
-ul.pts.big{font-size:1.05rem;gap:10px}
+ul.pts.lg{font-size:1.05rem;gap:10px}
 .feats{gap:24px}
 .feat{display:flex;gap:16px;align-items:flex-start}
 .feat b{display:block;font-size:1.05rem;margin-bottom:2px}
@@ -305,7 +322,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
         </div>
       </a>
       <a class="card" href="#adult-literacy">
-        <div class="thumb"><img src="assets/curriculum-plan.png" alt="Extract from the curriculum and assessment plan" style="object-position:top left"></div>
+        <div class="thumb stock"><img src="assets/market-money.jpg" alt="Stock photo: cash being handed over at a fruit and vegetable market stall" style="object-position:50% 58%"><span class="stock-tag">Stock photo</span></div>
         <div class="body">
           <span class="tag bg-peach" style="align-self:flex-start">Curriculum design · Conceptual</span>
           <h3>Adult literacy curriculum</h3>
@@ -412,7 +429,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <div class="challenge">
       <div class="head"><span class="label">The challenge</span><p class="q">Students have powerful AI tools but little structure for using them to think, not just to write.</p></div>
       <div class="body">
-        <ul class="pts big">
+        <ul class="pts lg">
           <li>Students tend to use AI to generate text, not to question and push their thinking.</li>
           <li>Most tertiary settings offer little structure for how AI is used.</li>
           <li>Reflections written after the fact add admin and rarely capture what actually happened.</li>
@@ -584,39 +601,61 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <div class="challenge">
       <div class="head"><span class="label">The challenge</span><p class="q">CoTrace creates a new role for educators, and they need to understand it from the inside before they can guide students through it.</p></div>
       <div class="body">
-        <p>Many institutions value generative, process-focused learning but lack the infrastructure to support it (Corbin et al., 2025). CoTrace provides that infrastructure, and it also creates a new role: the CoTrace Learning Facilitator.</p>
-        <p>That role asks educators to make a big shift, from content provider to what Vendrell and Johnston (2026) call a “cognitive orchestrator.” Facilitators need to know how to use the platform, and also why it works the way it does, so they can apply its logic consistently with real students.</p>
+        <ul class="pts lg"><li>Institutions value process-focused learning but often lack the infrastructure for it.</li><li>CoTrace creates a new role: the CoTrace Learning Facilitator.</li><li>Educators shift from content provider to “cognitive orchestrator” (Vendrell and Johnston, 2026).</li><li>They need to know why the platform works as it does, not just how to use it.</li></ul>
       </div>
     </div>
 
-    <div class="callout bg-sky">
+    <div class="callout bg-sky" style="margin-top:40px">
       <span class="label">Key design idea</span>
       <p class="big">Facilitators learn CoTrace by experiencing it the way their students will.</p>
-      <p style="max-width:48rem">An AI pedagogical agent guides facilitators through the module, narrating early on and stepping back as they gain confidence. It models the exact behaviour facilitators will need to reproduce: guiding with questions instead of giving answers.</p>
+      <ul class="pts lg"><li>An AI pedagogical agent guides facilitators through the module.</li><li>It narrates early on and steps back as they gain confidence.</li><li>It models the behaviour they’ll need with students: guiding with questions, not answers.</li></ul>
     </div>
 
-    <section style="padding-bottom:32px">
+    <section style="padding-top:48px;padding-bottom:24px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Module structure</span><h2>Four units, each with an activity and an assessment</h2></div>
-      <div class="units">
-        <div class="panel bg-sky"><span class="k">Unit 1</span><h3>Navigating the platform</h3><p><b>Activity:</b> interactive guided walkthrough, narrated by the agent</p><p><b>Assessment:</b> platform navigation task</p></div>
-        <div class="panel bg-sage"><span class="k">Unit 2</span><h3>From correcting to guiding</h3><p><b>Activity:</b> paired transcript comparison with demo videos</p><p><b>Assessment:</b> mock student response task</p></div>
-        <div class="panel bg-peach"><span class="k">Unit 3</span><h3>Evaluating the process</h3><p><b>Activity:</b> rubric co-construction in discussion</p><p><b>Assessment:</b> holistic portfolio evaluation</p></div>
-        <div class="panel bg-lilac"><span class="k">Unit 4</span><h3>Designing for productive friction</h3><p><b>Activity:</b> think-aloud modelling video</p><p><b>Assessment:</b> task design worksheet and reflective commentary</p></div>
+      <div class="units flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Navigating the platform: flip for details">
+          <div class="inner">
+            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 12.586 19 19"/><path d="M3.688 3.037a.497.497 0 0 0-.651.651l6.5 15.999a.501.501 0 0 0 .947-.062l1.569-6.083a2 2 0 0 1 1.448-1.479l6.124-1.579a.5.5 0 0 0 .063-.947z"/></svg></span><span class="label">Unit 1</span><span class="t">Navigating the platform</span><span class="s">Facilitators learn CoTrace by walking through it.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sky"><span class="bt">Navigating the platform</span><ul class="pts"><li><b>Activity:</b> an interactive walkthrough narrated by the AI agent</li><li><b>Assessment:</b> a platform navigation task</li><li><b>Feedback:</b> automated</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="From correcting to guiding: flip for details">
+          <div class="inner">
+            <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span><span class="label">Unit 2</span><span class="t">From correcting to guiding</span><span class="s">Giving answers versus asking questions.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sage"><span class="bt">From correcting to guiding</span><ul class="pts"><li><b>Activity:</b> paired transcript comparison with demo videos</li><li><b>Assessment:</b> guiding a mock student through all three phases</li><li><b>Feedback:</b> an AI first pass, then a fuller human comment</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Evaluating the process: flip for details">
+          <div class="inner">
+            <div class="face front bg-peach"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span><span class="label">Unit 3</span><span class="t">Evaluating the process</span><span class="s">Judging how deeply students engaged, not just the draft.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-peach"><span class="bt">Evaluating the process</span><ul class="pts"><li><b>Activity:</b> co-constructing a rubric in discussion</li><li><b>Assessment:</b> a holistic portfolio evaluation</li><li><b>Feedback:</b> qualitative, from a human, with no percentage mark</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Designing for productive friction: flip for details">
+          <div class="inner">
+            <div class="face front bg-lilac"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span class="label">Unit 4</span><span class="t">Designing for productive friction</span><span class="s">Designing tasks that make students think.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-lilac"><span class="bt">Designing for productive friction</span><ul class="pts"><li><b>Activity:</b> a think-aloud modelling video the agent pauses to ask questions</li><li><b>Assessment:</b> a task design worksheet and reflective commentary</li><li><b>Feedback:</b> human only, reflecting in writing, audio or video</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section style="padding-top:24px;padding-bottom:32px">
+    <section style="padding-top:40px;padding-bottom:24px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Design decisions</span><h2>Choosing the mode and the feedback to fit the task</h2></div>
-      <div class="grid2">
-        <div class="panel outline"><h3>Modes chosen for what they carry</h3><ul>
-          <li>Unit 2 uses short videos instead of text transcripts alone, because tone and delivery are central to the difference between correcting and guiding.</li>
-          <li>Unit 3 colour-codes sample portfolios by depth of engagement, giving facilitators a visual anchor before they put “depth” into words.</li>
-          <li>In Unit 4, facilitators choose to reflect in writing, audio or video.</li></ul></div>
-        <div class="panel outline"><h3>A feedback model matched to the task</h3><ul>
-          <li><b>Procedural tasks</b> (Unit 1) get automated feedback.</li>
-          <li><b>Judgement tasks</b> (Unit 2) get an AI first-pass check against the rubric, followed by a fuller human comment.</li>
-          <li><b>Process evaluation</b> (Unit 3) gets qualitative feedback from a human reviewer, with no raw percentage mark.</li>
-          <li><b>Personal and identity-related reflection</b> (Unit 4) is reviewed by a human only.</li></ul></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Modes chosen for what they carry: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><span class="t">Modes chosen for what they carry</span><span class="s">Each format does a job the others can’t.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Modes chosen for what they carry</span><ul class="pts"><li>Unit 2 uses short videos, because tone and delivery are central to guiding</li><li>Unit 3 colour-codes sample portfolios by depth of engagement</li><li>In Unit 4, facilitators choose to reflect in writing, audio or video</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Feedback matched to the task: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-rose"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span class="t">Feedback matched to the task</span><span class="s">The more personal the task, the more human the feedback.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Feedback matched to the task</span><ul class="pts"><li><b>Procedural tasks:</b> automated feedback</li><li><b>Judgement tasks:</b> an AI check against the rubric, then a human comment</li><li><b>Process evaluation:</b> qualitative human feedback, no raw mark</li><li><b>Personal reflection:</b> reviewed by a human only</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -654,15 +693,19 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <div class="challenge">
       <div class="head"><span class="label">The challenge</span><p class="q">Design a literacy curriculum that works in rural Zambia: low-tech, multilingual, oral and communal, for women largely left out of formal education.</p></div>
       <div class="body">
-        <p>Adult literacy programmes in rural African community centres work under real pressure: poverty, underfunding, many languages and limited access to technology (Sichula and Genis, 2019). Electricity and data are unreliable, most digital content isn’t available in local languages, and volunteer facilitators often have little digital training (African Union, 2020; Trucano, 2014).</p>
-        <p>Standard assessment makes it harder still. Written tests rely on Eurocentric ways of knowing and can shut out learners who understand the content well but can’t yet write it down, especially in English (Bangura, 2005; McArthur, 2023).</p>
+        <ul class="pts lg"><li>Poverty, underfunding, many languages and unreliable electricity and data.</li><li>Little digital content in local languages, and volunteer facilitators with limited digital training.</li><li>Written tests shut out learners who know the content but can’t yet write it, especially in English.</li></ul>
       </div>
+    </div>
+
+    <div class="photos">
+      <figure class="stock"><img src="assets/market-women.jpg" alt="Stock photo: two women smiling behind their vegetable stall at an outdoor market" loading="lazy"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/market-money.jpg" alt="Stock photo: cash being handed over at a market stall" style="object-position:50% 70%" loading="lazy"><span class="stock-tag">Stock photo</span></figure>
     </div>
 
     <div class="callout bg-peach" style="margin-top:40px">
       <span class="label">Key insight</span>
       <p class="big">The constraints became the design.</p>
-      <p style="max-width:48rem">Because the curriculum had to be low-tech, multilingual and oral, Ubuntu, translanguaging and community-based assessment became structural necessities instead of add-ons. Designing within the constraints made it a more authentically African design.</p>
+      <ul class="pts lg"><li>Low-tech, multilingual and oral delivery weren’t limits to work around.</li><li>They made Ubuntu, translanguaging and community-based assessment structural, not add-ons.</li></ul>
     </div>
 
     <section style="padding-bottom:24px">
@@ -676,53 +719,125 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       </div>
     </section>
 
-    <section style="padding-top:40px;padding-bottom:24px">
+    <section style="padding-top:48px;padding-bottom:24px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The sessions</span><h2>Six sessions that build towards a community market</h2></div>
-      <div class="steps6">
-        <div class="panel outline"><span class="k">Session 1</span><h3>Community entry</h3><p>An Ubuntu name circle builds trust, Freirean picture codes draw out the market vocabulary learners already know, and “each one teach one” peer teaching links Chichewa to English.</p></div>
-        <div class="panel outline"><span class="k">Session 2</span><h3>Rhythm and oral practice</h3><p>Groups co-create bilingual chants for key phrases, such as “How much is this? / Ndalama zingati?”, using rhythm and gesture as memory anchors.</p></div>
-        <div class="panel outline"><span class="k">Session 3 · Assessed</span><h3>Market role-play</h3><p>Buyers and sellers negotiate with visual cue cards. Translanguaging is encouraged, and learners observe and give feedback to a peer.</p></div>
-        <div class="panel outline"><span class="k">Session 4 · Practice</span><h3>Banking simulation</h3><p>Learners complete mock deposit slips, tally sheets and paper versions of banking app screens, using them as literacy tools, not tech practice.</p></div>
-        <div class="panel outline"><span class="k">Session 5 · Summative</span><h3>Community market</h3><p>Everything comes together: learners run stalls, trade, keep records in both languages, and help peers who are still finishing.</p></div>
-        <div class="panel outline"><span class="k">Session 6 · Closing</span><h3>Ubuntu reflection circle</h3><p>Learners share what they learned and how their community helped them, then co-evaluate the programme with the facilitator.</p></div>
+      <div class="grid3 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Community entry: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/community-circle.jpg" alt="Stock photo: women of different ages seated together on the ground under a tree at a rural community gathering" loading="lazy" style="object-position:50% 62%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 1</span><span class="t">Community entry</span><span class="s">Building trust and drawing on what learners already know.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Community entry</span><ul class="pts"><li>An Ubuntu name circle builds communal trust</li><li>Freirean picture codes draw out market vocabulary in Chichewa</li><li>“Each one teach one” peer teaching links Chichewa to English</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sky">LO1</span></span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Rhythm and oral practice: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/singing-clapping.jpg" alt="Stock photo: an older woman laughing, singing and clapping with a group" loading="lazy" style="object-position:50% 28%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 2</span><span class="t">Rhythm and oral practice</span><span class="s">Co-created chants make new phrases stick.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Rhythm and oral practice</span><ul class="pts"><li>Groups build bilingual chants, like “How much is this? / Ndalama zingati?”</li><li>Rhythm and gesture act as memory anchors</li><li>Groups perform for one another</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sky">LO1</span><span class="lochip bg-sage">LO2</span></span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Market role-play: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/market-stall.jpg" alt="Stock photo: two women laughing together across a market stall of fresh okra" loading="lazy" style="object-position:50% 28%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 3 · Assessed</span><span class="t">Market role-play</span><span class="s">Negotiating as buyers and sellers in two languages.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Market role-play</span><ul class="pts"><li>Visual cue cards support the role-play</li><li>Translanguaging is encouraged</li><li>Peers observe and give feedback</li><li>Formative, authentic assessment</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sky">LO1</span><span class="lochip bg-sage">LO2</span></span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Banking simulation: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/bank-statement.jpg" alt="Stock photo: hands holding a printed bank statement over a table of financial paperwork" loading="lazy" style="object-position:50% 60%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 4 · Practice</span><span class="t">Banking simulation</span><span class="s">Paper-based banking builds real-world literacy.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Banking simulation</span><ul class="pts"><li>Mock deposit slips and tally sheets</li><li>Paper versions of banking app screens</li><li>Practice only, not formally assessed</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-butter">LO3</span></span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Community market: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/market-exchange.jpg" alt="Stock photo: a buyer and a seller exchanging leafy greens at a busy market stall" loading="lazy" style="object-position:50% 65%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 5 · Summative</span><span class="t">Community market</span><span class="s">Everything comes together in one authentic task.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Community market</span><ul class="pts"><li>Learners run stalls, trade and record transactions in both languages</li><li>Supporting a peer counts as much as accuracy</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sage">LO2</span><span class="lochip bg-butter">LO3</span><span class="lochip bg-lilac">LO4</span></span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Ubuntu reflection circle: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/reflection-circle.jpg" alt="Stock photo: three women sitting together outdoors by the water, sharing a high five" loading="lazy" style="object-position:50% 52%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 6 · Closing</span><span class="t">Ubuntu reflection circle</span><span class="s">Learners reflect together and shape what comes next.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Ubuntu reflection circle</span><ul class="pts"><li>Learners share what they learned and how the community helped</li><li>They co-evaluate the programme with the facilitator</li><li>Their input feeds the next version</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-lilac">LO4</span></span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section style="padding-top:40px;padding-bottom:24px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The pedagogy underneath</span><h2>Learner-centred, communal and rooted in context</h2></div>
-      <div class="grid3">
-        <div class="panel outline"><span class="dot bg-peach"></span><h3>Ubuntugogy and co-creation</h3><p class="refs">Bangura (2005); Waghid (2005); Lubicz-Nawrocka (2022)</p><p>Learning is shared and communal. Content is co-constructed through dialogue and role-play instead of delivered, so the classroom becomes “just us” rather than “them and us.” Facilitators act as co-learners.</p></div>
-        <div class="panel outline"><span class="dot bg-sage"></span><h3>Andragogy</h3><p class="refs">Ngozwana (2020); Addae (2021)</p><p>The women are autonomous adults with rich prior knowledge. They identify their own learning needs, and every theme has immediate use in their daily lives, which is when literacy feels truly valuable.</p></div>
-        <div class="panel outline"><span class="dot bg-sky"></span><h3>Translanguaging</h3><p class="refs">Zondi and Mbatha (2025)</p><p>Chichewa and English work together. Learners’ home language bridges meaning while English proficiency grows, preserving cultural identity instead of replacing it.</p></div>
-        <div class="panel outline"><span class="dot bg-butter"></span><h3>Low-tech by design</h3><p class="refs">Trucano (2014)</p><p>“The best technology is the one you already have, know how to use, and can afford.” Blackboards, picture cards, props and paper imitations of banking apps prepare learners for digital tasks without depending on devices.</p></div>
-        <div class="panel outline"><span class="dot bg-lilac"></span><h3>A grassroots curriculum model</h3><p class="refs">Taba, in Djamolovna and Gopalan (2024); Lubicz-Nawrocka (2022)</p><p>A hybrid of Taba’s bottom-up model and curriculum co-creation shifts authority from the outside “expert” to learners, and avoids top-down models that centre colonial academic content.</p></div>
-        <div class="panel outline"><span class="dot bg-rose"></span><h3>Constructive alignment</h3><p class="refs">Biggs and Tang (2007); Churches (2008)</p><p>Each outcome has a clear verb, is activated through authentic practice like a mock deposit, and is verified through real-world performance instead of a written test.</p></div>
+      <div class="grid3 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Ubuntugogy and co-creation: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-peach"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="t">Ubuntugogy and co-creation</span><span class="s">Learning is shared, and content is built together.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Ubuntugogy and co-creation</span><ul class="pts"><li>Content is co-constructed through dialogue and role-play</li><li>The classroom becomes “just us”, not “them and us”</li><li>Facilitators act as co-learners</li></ul><span class="refs">Bangura (2005); Waghid (2005); Lubicz-Nawrocka (2022)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Andragogy: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><span class="t">Andragogy</span><span class="s">The women are adults who bring rich prior knowledge.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Andragogy</span><ul class="pts"><li>Learners identify their own learning needs</li><li>Every theme has immediate use in daily life</li><li>That’s when literacy feels truly valuable</li></ul><span class="refs">Ngozwana (2020); Addae (2021)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Translanguaging: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-sky"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span><span class="t">Translanguaging</span><span class="s">Chichewa and English work together.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Translanguaging</span><ul class="pts"><li>The home language bridges meaning</li><li>English proficiency grows alongside it</li><li>Cultural identity is preserved, not replaced</li></ul><span class="refs">Zondi and Mbatha (2025)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Low-tech by design: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span><span class="t">Low-tech by design</span><span class="s">Use the technology learners already have.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Low-tech by design</span><ul class="pts"><li>“The best technology is the one you already have, know how to use, and can afford”</li><li>Blackboards, picture cards, props and real objects</li><li>Paper imitations of banking apps prepare learners for digital tasks</li></ul><span class="refs">Trucano (2014)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="A grassroots curriculum model: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span><span class="t">A grassroots curriculum model</span><span class="s">Authority shifts from the outside expert to the learners.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">A grassroots curriculum model</span><ul class="pts"><li>A hybrid of Taba’s bottom-up model and curriculum co-creation</li><li>Builds on indigenous knowledge</li><li>Avoids top-down models that centre colonial academic content</li></ul><span class="refs">Djamolovna and Gopalan (2024); Lubicz-Nawrocka (2022)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Constructive alignment: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-rose"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><span class="t">Constructive alignment</span><span class="s">Outcomes, activities and assessment fit together.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Constructive alignment</span><ul class="pts"><li>Each outcome has a clear verb, such as “apply”</li><li>It’s activated through authentic practice, like a mock deposit</li><li>It’s verified through real-world performance, not a written test</li></ul><span class="refs">Biggs and Tang (2007); Churches (2008)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section style="padding-top:40px;padding-bottom:24px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Assessment</span><h2>Oral, performative and fair to low-literacy learners</h2></div>
-      <div class="grid2">
-        <div class="panel bg-sage"><h3>What gets assessed, and how</h3><ul>
-          <li>Oral and performative tasks replace written tests, and they reflect real roles learners know: market trader and banking client.</li>
-          <li>Criteria are co-constructed with learners in Chichewa and English, and used for self- and peer-assessment.</li>
-          <li>The Session 5 market simulation is where LO2, LO3 and LO4 come together in one authentic task.</li>
-          <li>Ubuntu counts: a learner who supports a peer or models honest record-keeping is showing something as assessable as technical accuracy.</li></ul></div>
-        <div class="panel bg-sky"><h3>Using results to improve</h3><ul>
-          <li>Facilitator observation notes are reviewed after each session to spot patterns and adjust later sessions.</li>
-          <li>The closing reflection circle is both a formative assessment and a space for learners to say what helped or held them back.</li>
-          <li>Learners’ co-evaluation feeds the next version of the programme, following the action research spiral (Biggs and Tang, 2007).</li></ul></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What gets assessed, and how: flip for details">
+          <div class="inner">
+            <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span><span class="t">What gets assessed, and how</span><span class="s">Oral, performative tasks drawn from real roles.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sage"><span class="bt">What gets assessed, and how</span><ul class="pts"><li>Market trader and banking client tasks replace written tests</li><li>Criteria are co-constructed in Chichewa and English</li><li>Used for self- and peer-assessment</li><li>Supporting a peer is as assessable as technical accuracy</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Using results to improve: flip for details">
+          <div class="inner">
+            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span class="t">Using results to improve</span><span class="s">Every session shapes the next.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sky"><span class="bt">Using results to improve</span><ul class="pts"><li>Facilitator observation notes reviewed after each session</li><li>The reflection circle doubles as formative assessment</li><li>Learners’ co-evaluation feeds the next version (Biggs and Tang’s action research spiral)</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="row2"><span class="label">Working with AI</span><div class="body">
-      <p>I used Claude to draft the first learning outcomes and assessment criteria, and NotebookLM to work closely with my sources. As Sridhar et al. (2023) warn, AI-generated objectives tend to rely on broad Western assumptions, and Claude’s first drafts did.</p>
-      <p>I revised them using Bangura (2005), Waghid (2005) and Sichula and Genis (2019) so the outcomes reflect Ubuntu, communal ways of learning and the everyday lives of rural Zambian women. The decisions about the learners, the focus and the technology came from my own research.</p>
-    </div></div>
-    <div class="row2"><span class="label">What I learned</span><div class="body">
-      <p>Designing for an oral culture challenged my assumptions about what assessment looks like. It pushed me away from tests where learners report facts, towards assessment that is functional and performative, where learners put knowledge to work in their own lives.</p>
-      <p>It also showed me that constraints can be a catalyst. The limits of the context are what made this curriculum relevant.</p>
-    </div></div>
+    <section style="padding-top:40px;padding-bottom:32px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Reflection</span><h2>Working with AI, and what I learned</h2></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Working with AI: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><span class="t">Working with AI</span><span class="s">Claude drafted the outcomes; I rewrote them for the context.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Working with AI</span><ul class="pts"><li>Claude drafted the first outcomes and criteria; NotebookLM supported close work with sources</li><li>The drafts carried broad Western assumptions, as Sridhar et al. (2023) warn</li><li>I revised them using Bangura, Waghid, and Sichula and Genis</li><li>Decisions about the learners, focus and technology were my own</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What I learned: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span class="t">What I learned</span><span class="s">Constraints can be a catalyst.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">What I learned</span><ul class="pts"><li>Designing for an oral culture challenged my assumptions about assessment</li><li>I moved from tests that report facts to functional, performative assessment</li><li>The limits of the context are what made the curriculum relevant</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="ctas" style="margin-block:8px 16px"><a class="btn primary" href="assets/adult-literacy-curriculum.pdf" target="_blank" rel="noopener">View the full curriculum table (PDF) ↗</a></div>
     <p class="note">This is a conceptual design developed for my Postgraduate Diploma in Instructional Design. It has not been delivered to learners.</p>
@@ -750,59 +865,111 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <div class="challenge">
       <div class="head"><span class="label">The challenge</span><p class="q">A new admin assistant had to learn her role with no onboarding, so every gap in her knowledge became a wait for a busy manager.</p></div>
       <div class="body">
-        <p>A new sales and admin assistant joined a natural stone wholesaler in Cape Town with no formal onboarding. There was no manual or training plan. She learned by watching a senior colleague as things came up.</p>
-        <p>She had built her own coping system from sticky notes, loose handwritten lists and a “brain dump” planning sheet. But every knowledge gap turned into a dependency. She had to ask a busy manager for discount rules, stock information and incoming order details, which slowed down her replies to clients.</p>
+        <ul class="pts lg"><li>No manual, training plan or formal onboarding.</li><li>She coped with sticky notes, handwritten lists and a “brain dump” planning sheet.</li><li>Discount rules, stock and order details meant asking a busy manager.</li><li>Waiting slowed down her replies to clients.</li></ul>
       </div>
     </div>
-    <div class="row2"><span class="label">How we worked with her</span><div class="body">
-      <p>She was a working adult with little time for formal interviews, so we used an asynchronous WhatsApp probe kit over four days. She shared photos, voice notes and messages whenever something felt relevant, in her own space and on her own schedule.</p>
-      <p>The first round of prompts asked about her everyday workday. The second asked her to look back on her onboarding, for example: if a magic button could instantly explain one part of your job, what would it explain?</p>
-      <p>We mapped the power dynamics carefully. Senior management were consulted only for content knowledge, such as how the discount system works. She kept authority over the design decisions, and we were open with her about who we had consulted.</p>
-    </div></div>
 
-    <div class="callout bg-sage">
+    <section style="padding-top:48px;padding-bottom:32px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Co-design</span><h2>How we worked with her</h2></div>
+      <div class="grid3 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="A WhatsApp probe kit: flip for details">
+          <div class="inner">
+            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span><span class="t">A WhatsApp probe kit</span><span class="s">Four days of photos, voice notes and messages, on her schedule.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sky"><span class="bt">A WhatsApp probe kit</span><ul class="pts"><li>She had little time for formal interviews</li><li>The kit was asynchronous, in her own space</li><li>She shared whatever felt relevant, whenever it came up</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Two rounds of prompts: flip for details">
+          <div class="inner">
+            <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span><span class="t">Two rounds of prompts</span><span class="s">First her everyday workday, then her onboarding.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sage"><span class="bt">Two rounds of prompts</span><ul class="pts"><li>Round 1: what her workday actually looks like</li><li>Round 2: looking back on her onboarding</li><li>“If a magic button could instantly explain one part of your job, what would it explain?”</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Power dynamics: flip for details">
+          <div class="inner">
+            <div class="face front bg-peach"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span><span class="t">Power dynamics</span><span class="s">She kept authority over the design decisions.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-peach"><span class="bt">Power dynamics</span><ul class="pts"><li>Management was consulted only for content knowledge, like discount rules</li><li>She made the design decisions</li><li>We were open with her about who we consulted</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="callout bg-sage" style="margin-top:8px">
       <span class="label">Key insight</span>
       <p class="big">She already had a system. It just had nothing solid behind it.</p>
-      <p style="max-width:48rem">Instead of replacing her sticky notes and brain dump sheet, the job aid would extend them by bringing what she was already tracking into one familiar, low-stakes paper tool she could rely on without asking first.</p>
+      <ul class="pts lg"><li>The job aid would extend her sticky notes and brain dump sheet, not replace them.</li><li>Everything she tracked would live in one familiar, low-stakes paper tool.</li><li>She could rely on it without asking first.</li></ul>
     </div>
 
-    <div class="row2"><span class="label">What we designed</span><div class="body">
-      <p>The Daily Card is a double-sided A4 card that sits on her desk. Side A is a daily workflow sheet with two zones: incoming orders and stock allocation. Side B is the microlearning piece, a step-by-step discount guide for quoting damaged stone slabs. It starts by teaching her to tell structural damage from cosmetic damage, then walks her through the decision, and ends with a clear checklist for when to escalate.</p>
-      <p>We used Merrill’s First Principles to shape what the card teaches, from real-world tasks to applying the rules independently, and SAM to keep iterating quickly with her. The blank percentage fields on the discount guide are filled in once with her manager, so the rules become hers to apply.</p>
-    </div></div>
+    <section style="padding-top:40px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The design</span><h2>What we designed</h2></div>
+      <div class="grid3 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Side A: daily workflow: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-sky"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><span class="t">Side A: daily workflow</span><span class="s">One sheet for incoming orders and stock allocation.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Side A: daily workflow</span><ul class="pts"><li>Zone 1: incoming orders</li><li>Zone 2: stock allocation</li><li>Printed daily and kept on her desk</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Side B: discount guide: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-rose"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="t">Side B: discount guide</span><span class="s">A step-by-step guide for quoting damaged slabs.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Side B: discount guide</span><ul class="pts"><li>Starts with telling structural damage from cosmetic damage</li><li>Walks her through the decision</li><li>Ends with a clear checklist for when to escalate</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="How it teaches: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span class="t">How it teaches</span><span class="s">Real tasks first, then applying the rules on her own.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">How it teaches</span><ul class="pts"><li>Merrill’s First Principles shaped what the card teaches</li><li>SAM kept iteration quick and close to her</li><li>Blank percentage fields are filled in once with her manager, so the rules become hers</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <figure style="margin:0 0 48px;display:flex;flex-direction:column;gap:12px">
       <div class="stage" data-full></div>
       <figcaption class="cap">A simplified recreation of the Version 2 card. Business details have been removed.</figcaption>
     </figure>
 
-    <div class="row2" style="padding-bottom:28px"><span class="label">Testing and iteration</span><div class="body">
-      <p>We shared Version 1 as a PDF in the same WhatsApp group and asked open questions: what works, what feels confusing, what you wouldn’t realistically use. Her response was enthusiastic, and she was also very specific about what didn’t match how she actually works.</p>
-    </div></div>
-    <div class="grid2" style="margin-bottom:24px">
-      <div class="panel bg-sky"><h3>What changed in Version 2</h3><ul>
-        <li>Zone 1 columns reordered to match her workflow, with material and block number split and a new slab column</li>
-        <li>Delivery date removed, since the card is printed daily</li>
-        <li>Zone 2 rebuilt from her own rough sketch, with a dedicated layout for tombstone orders we hadn’t anticipated</li>
-        <li>More intentional colour-coding, because she said the colour helped</li></ul></div>
-      <div class="panel bg-peach"><h3>What stayed the same</h3><ul>
-        <li>The step-by-step structure of the discount guide, which she said worked well for her</li>
-        <li>Severely damaged slabs were added to the escalation checklist rather than given a new step, since they always need a manager</li></ul></div>
-    </div>
+    <section style="padding-top:0;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Testing and iteration</span><h2>She tested Version 1 and told us what didn’t fit</h2>
+        <p class="lead">We shared Version 1 in the same WhatsApp group and asked what worked, what was confusing and what she wouldn’t realistically use.</p></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What changed in Version 2: flip for details">
+          <div class="inner">
+            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span class="t">What changed in Version 2</span><span class="s">Four changes, all from her feedback.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sky"><span class="bt">What changed in Version 2</span><ul class="pts"><li>Zone 1 columns reordered to match her workflow, with a new slab column</li><li>Delivery date removed, since the card is printed daily</li><li>Zone 2 rebuilt from her own sketch, including tombstone orders</li><li>More intentional colour-coding, because the colour helped</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What stayed the same: flip for details">
+          <div class="inner">
+            <div class="face front bg-peach"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span><span class="t">What stayed the same</span><span class="s">The step-by-step discount guide worked.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-peach"><span class="bt">What stayed the same</span><ul class="pts"><li>She said the structure worked well for her</li><li>Severely damaged slabs joined the escalation checklist instead of becoming a new step</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="callout bg-butter" style="margin-block:16px 8px">
       <span class="label">Outcome</span>
       <p class="big">The project led the company to create a formal SOP for the role.</p>
-      <p style="max-width:48rem">Co-designing the card made the missing onboarding visible. After I raised it with management, the company created a standard operating procedure for the role, so the next person won’t have to piece it together alone.</p>
+      <ul class="pts lg"><li>Co-designing the card made the missing onboarding visible.</li><li>After I raised it with management, the company created a standard operating procedure for the role.</li></ul>
     </div>
 
-    <div class="row2"><span class="label">My role</span><div class="body">
-      <p>I managed our team of three throughout the project, coordinating the plan, the division of work and the timeline across the co-design sessions, prototyping and iteration.</p>
-    </div></div>
-    <div class="row2"><span class="label">What I learned</span><div class="body">
-      <p>We expected the problem to be about access to information. Through co-design we saw how much of it was about confidence: she needed to feel allowed to act without checking with management first. That changed the tone and framing of the card, even though the format stayed similar.</p>
-      <p>I also came away questioning our own solution. A well-designed job aid can quietly let an organisation off the hook for the onboarding it never provided. Naming that tension openly with management is what led to the SOP, which taught me that part of a learning designer’s job is pointing at the gap behind the request.</p>
-    </div></div>
+    <section style="padding-top:40px;padding-bottom:16px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Reflection</span><h2>My role, and what I learned</h2></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="My role: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="t">My role</span><span class="s">Project manager for our team of three.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">My role</span><ul class="pts"><li>Coordinated the plan, division of work and timeline</li><li>Across the co-design sessions, prototyping and iteration</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What I learned: flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span class="t">What I learned</span><span class="s">It was about confidence, not just information.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">What I learned</span><ul class="pts"><li>She needed to feel allowed to act without checking first</li><li>That changed the tone and framing of the card</li><li>A job aid can let an organisation off the hook for onboarding it never provided</li><li>Naming that tension with management led to the SOP</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <a class="next" href="#cotrace"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>CoTrace</h3></span><span class="arrow">→</span></a>
   </div>
