@@ -27,7 +27,7 @@
   --shadow:0 12px 32px rgba(0,0,0,.35); color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px));box-sizing:content-box}
 h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;line-height:1.12;letter-spacing:-.01em}
 h1{font-size:clamp(2.3rem,5vw,3.4rem)}
@@ -139,6 +139,26 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .insight figure{margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/3}
 .insight img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:900px){.insight{grid-template-columns:1fr;gap:24px}}
+
+.gallery img{cursor:zoom-in}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(20,20,20,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:calc(56px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:min(1400px,100%);max-height:calc(100% - 60px);object-fit:contain;border-radius:12px;background:#FFFFFF}
+.lightbox p{color:#FFFFFF;font-size:.95rem;text-align:center;max-width:60rem;margin:0}
+.lightbox button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));background:#FFFFFF;color:#2B2A28;border:0;border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;cursor:pointer}
+
+/* accessibility */
+.skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--solid);color:var(--on-solid);padding:10px 16px;border-radius:0 0 12px 0;font-weight:600;text-decoration:none}
+.skip:focus{left:max(16px,env(safe-area-inset-left,0px))}
+.a11y{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.a11y button{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;display:inline-flex;gap:6px;align-items:center;line-height:1.2}
+.a11y button:hover{border-color:var(--ink)}
+.a11y button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue);border-color:var(--blue)}
+.a11y .size{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.a11y .size button{border:0;border-radius:0;padding:7px 12px}
+.a11y .size button+button{border-left:1.5px solid var(--line)}
+.speaking{outline:3px solid var(--blue);outline-offset:4px;border-radius:6px;background:color-mix(in srgb,var(--blue) 10%,transparent)}
+.navr{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
 
 /* journey */
 .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
@@ -268,7 +288,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
   .cs-title{grid-template-columns:1fr}
 }
 @media (max-width:640px){
-  body{font-size:17px}
+  body{font-size:1.0625rem}
   section{padding-block:56px}
   .grid2,.grid4{grid-template-columns:1fr}
   .links{gap:18px}
@@ -280,19 +300,26 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 <style>img{max-width:100%}html{scroll-behavior:smooth}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="wrap">
   <nav class="nav" aria-label="Main">
     <a class="brand" href="#home">Zandaley Bothma</a>
-    <div class="links">
-      <a href="#work">Work</a>
-      <a href="#journal">Journal</a>
-      <a href="#journey">Journey</a>
-      <a href="#contact">Contact</a>
+    <div class="navr">
+      <div class="links">
+        <a href="#work">Work</a>
+        <a href="#journal">Journal</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="a11y" role="group" aria-label="Accessibility options">
+        <button type="button" id="listen" aria-pressed="false" hidden><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg> <span id="listen-label">Listen</span></button>
+        <span class="size" role="group" aria-label="Text size"><button type="button" id="txt-down" aria-label="Make text smaller">A−</button><button type="button" id="txt-up" aria-label="Make text larger">A+</button></span>
+      </div>
     </div>
   </nav>
 </div>
 
-<main>
+<main id="main">
 <!-- HOME -->
 <div data-page="home" class="active">
   <div class="wrap">
@@ -312,7 +339,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
           <span class="tag bg-lilac">AI-integrated learning</span>
         </div>
       </div>
-      <img class="photo" src="assets/headshot.jpg" alt="Portrait of Zandaley Bothma" width="360" height="450">
+      <img class="photo" src="assets/headshot.jpg" alt="Portrait of Zandaley Bothma, smiling, with long brown hair, wearing a lilac shirt and black blazer" width="360" height="450">
     </div>
   </div>
 
@@ -323,7 +350,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </div>
     <div class="grid2">
       <a class="card" href="#cotrace">
-        <div class="thumb stock"><img src="assets/human-ai-hands.jpg" alt="Stock photo of a robotic hand and a human hand reaching towards each other against a soft blue background" style="object-position:50% 50%"><span class="stock-tag">Stock photo</span></div>
+        <div class="thumb stock"><img src="assets/human-ai-hands.jpg" alt="" style="object-position:50% 50%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
         <div class="body">
           <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning</span>
           <h3>CoTrace</h3>
@@ -332,7 +359,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
         </div>
       </a>
       <a class="card" href="#facilitator-module">
-        <div class="thumb stock"><img src="assets/video-call.jpg" alt="Stock photo of a laptop showing a group video call, beside a green mug on a wooden table" style="object-position:60% 40%"><span class="stock-tag">Stock photo</span></div>
+        <div class="thumb stock"><img src="assets/video-call.jpg" alt="" style="object-position:60% 40%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
         <div class="body">
           <span class="tag bg-sky" style="align-self:flex-start">Online learning design · Linked to CoTrace</span>
           <h3>Facilitator Orientation Module</h3>
@@ -341,7 +368,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
         </div>
       </a>
       <a class="card" href="#adult-literacy">
-        <div class="thumb stock"><img src="assets/market-money.jpg" alt="Stock photo of cash being handed over at a fruit and vegetable market stall" style="object-position:50% 58%"><span class="stock-tag">Stock photo</span></div>
+        <div class="thumb stock"><img src="assets/market-money.jpg" alt="" style="object-position:50% 58%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
         <div class="body">
           <span class="tag bg-peach" style="align-self:flex-start">Curriculum design · Conceptual</span>
           <h3>Adult literacy curriculum</h3>
@@ -350,7 +377,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
         </div>
       </a>
       <a class="card" href="#daily-card">
-        <div class="thumb stock"><img src="assets/office-admin.jpg" alt="Stock photo of a woman at an office desk reading a document while typing at her computer" style="object-position:60% 40%"><span class="stock-tag">Stock photo</span></div>
+        <div class="thumb stock"><img src="assets/office-admin.jpg" alt="" style="object-position:60% 40%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
         <div class="body">
           <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
           <h3>Daily Card, a co-designed job aid</h3>
@@ -366,11 +393,11 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <div class="stack" style="gap:16px">
         <span class="label">Multimodal journal</span>
         <h2>See how I think as a designer</h2>
-        <a class="jimg" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener"><img src="assets/journal.jpg" alt="The multimodal journal website, showing its contents menu and an introduction video" loading="lazy"></a>
-        <p>My multimodal journal is where I work through my design thinking in the open, through writing, video and visuals. It traces the questions, tensions and decisions behind projects like CoTrace, and how my practice has grown across my diploma.</p>
+        <a class="jimg" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener"><img src="assets/journal.jpg" alt="Screenshot of my multimodal journal website, with a contents menu of journal entries on the left and an embedded introduction video on the right" loading="lazy"></a>
+        <p>My multimodal journal is where I work through my design thinking in the open, through writing, video and visuals. It traces the questions, tensions and decisions behind my coursework and the theory I’ve engaged with, and how my practice has grown across my diploma.</p>
         <p class="muted" style="font-size:1rem">I designed it as an LMS-style website and taught myself to build it with AI assistance.</p>
         <a class="teaser" href="https://zandaleyid.github.io/journal/#/entry-10" target="_blank" rel="noopener"><strong>Final Reflection</strong><span>Where I bring together the key ideas from the journal, what I’ve learned, and where I want to go next as a designer.</span></a>
-        <div class="ctas"><a class="btn primary" href="https://zandaleyid.github.io/journal/#/entry-10" target="_blank" rel="noopener">Read the Final Reflection ↗</a><a class="btn" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener">Browse all entries ↗</a></div>
+        <div class="ctas"><a class="btn" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener">Watch the introduction video ↗</a><a class="btn primary" href="https://zandaleyid.github.io/journal/#/entry-10" target="_blank" rel="noopener">Read the Final Reflection ↗</a><a class="btn" href="https://zandaleyid.github.io/journal" target="_blank" rel="noopener">Browse all entries ↗</a></div>
       </div>
     </div>
   </section>
@@ -410,7 +437,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 
   <section id="contact" class="wrap" style="padding-top:24px">
     <div class="contact">
-      <h2>Let’s design something people will actually use.</h2>
+      <h2>Let’s design learning that keeps people at the centre.</h2>
       <p>Open to entry-level instructional design and learning design roles, remote or in Cape Town.</p>
       <div class="row">
         <span><a href="mailto:zandaley@gmail.com">zandaley@gmail.com</a> <button class="copy" type="button" id="copy-email">Copy</button></span>
@@ -455,14 +482,14 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </div>
 
     <div class="photos">
-      <figure class="stock"><img src="assets/ai-chat-screen.jpg" alt="Stock photo of an AI chatbot start screen on a curved monitor in a dark room" loading="lazy" style="object-position:50% 45%"><span class="stock-tag">Stock photo</span></figure>
-      <figure class="stock"><img src="assets/human-code.jpg" alt="Stock photo of a woman in profile with lines of binary code projected across her face" loading="lazy" style="object-position:42% 50%"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/ai-chat-screen.jpg" alt="" loading="lazy" style="object-position:50% 45%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/human-code.jpg" alt="" loading="lazy" style="object-position:42% 50%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
     </div>
 
     <section style="padding-top:48px;padding-bottom:16px">
-      <div class="stack" style="gap:12px;margin-bottom:24px"><span class="label">The idea</span><h2>Design the conditions, not just the tool</h2></div>
+      <div class="stack" style="gap:12px;margin-bottom:24px"><span class="label">The idea</span><h2>Design the tool and the conditions</h2></div>
       <div class="does">
-        <figure class="stock"><img src="assets/ai-butterflies.jpg" alt="Stock photo of a lilac paper head silhouette beside the letters AI, with paper butterflies rising from it" loading="lazy"><span class="stock-tag">Stock photo</span></figure>
+        <figure class="stock"><img src="assets/ai-butterflies.jpg" alt="" loading="lazy"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
         <div class="feats-col">
           <p style="font-size:1.1rem">AI can already do a lot. My question was different. What would it take for students to meet AI in a way that sharpens their thinking instead of replacing it?</p>
           <p style="font-size:1.1rem">CoTrace is my answer in concept form. It shapes how students work with AI, so the learning uses are easy to reach and the shortcuts are harder to take.</p>
@@ -589,8 +616,8 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </div>
 
     <div class="photos">
-      <figure class="stock"><img src="assets/online-training.jpg" alt="Stock photo of a woman wearing headphones working through an online course on her laptop" loading="lazy" style="object-position:50% 50%"><span class="stock-tag">Stock photo</span></figure>
-      <figure class="stock"><img src="assets/workshop.jpg" alt="Stock photo of educators seated around tables in a bright workshop room, watching a presentation" loading="lazy" style="object-position:40% 60%"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/online-training.jpg" alt="" loading="lazy" style="object-position:50% 50%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/workshop.jpg" alt="" loading="lazy" style="object-position:40% 60%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
     </div>
 
     <section style="padding-top:48px;padding-bottom:24px">
@@ -644,10 +671,10 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <section style="padding-top:24px;padding-bottom:40px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Storyboard and wireframes</span><h2>Selected screens</h2></div>
       <div class="gallery">
-        <figure><img src="assets/fom-dashboard.jpg" alt="Landing page and facilitator dashboard wireframes, with four units, a reflective journal and an AI guide" loading="lazy"><figcaption class="cap">The landing page and dashboard. Units unlock in order, and the AI guide introduces itself.</figcaption></figure>
-        <figure><img src="assets/fom-transcript.jpg" alt="Unit 2 learning activity wireframe comparing an answer-checking video with a thinking partner video" loading="lazy"><figcaption class="cap">In Unit 2, the same student queries are handled two ways, then annotated.</figcaption></figure>
-        <figure><img src="assets/fom-mock-student.jpg" alt="Unit 2 assessment wireframe where facilitators respond to a mock student, with a rubric alongside" loading="lazy"><figcaption class="cap">In the Unit 2 assessment, facilitators guide a mock student through a CoTrace task.</figcaption></figure>
-        <figure><img src="assets/fom-think-aloud.jpg" alt="Unit 4 activity wireframe with a think-aloud modelling video and an AI agent asking reflective questions" loading="lazy"><figcaption class="cap">In Unit 4, the agent pauses an expert’s think-aloud to ask about each judgement call.</figcaption></figure>
+        <figure><img src="assets/fom-dashboard.jpg" alt="Two wireframes side by side. The landing page shows the CoTrace logo with a log-in form. The dashboard welcomes the facilitator, lists four units with only Unit 1 unlocked, links to a reflective journal and folders, and shows an AI guide character introducing itself in a speech bubble." loading="lazy"><figcaption class="cap">The landing page and dashboard. Units unlock in order, and the AI guide introduces itself.</figcaption></figure>
+        <figure><img src="assets/fom-transcript.jpg" alt="Wireframe of the Unit 2 learning activity. Two demo videos sit side by side, one showing AI used as an answer checker and one showing AI used as a thinking partner, with annotation notes beside them." loading="lazy"><figcaption class="cap">In Unit 2, the same student queries are handled two ways, then annotated.</figcaption></figure>
+        <figure><img src="assets/fom-mock-student.jpg" alt="Wireframe of the Unit 2 assessment. A mock student’s messages appear on the left, the facilitator types guiding responses in the middle, and a marking rubric sits on the right." loading="lazy"><figcaption class="cap">In the Unit 2 assessment, facilitators guide a mock student through a CoTrace task.</figcaption></figure>
+        <figure><img src="assets/fom-think-aloud.jpg" alt="Wireframe of the Unit 4 learning activity. A think-aloud modelling video plays on the left, and an AI agent panel on the right asks reflective questions such as what tension the facilitator noticed." loading="lazy"><figcaption class="cap">In Unit 4, the agent pauses an expert’s think-aloud to ask about each judgement call.</figcaption></figure>
       </div>
       <p class="note" style="margin-top:24px">The full storyboard and wireframes are available on request. Email me at <a href="mailto:zandaley@gmail.com">zandaley@gmail.com</a>.</p>
       <div class="ctas" style="margin-top:16px"><a class="btn" href="#cotrace">About CoTrace</a></div>
@@ -681,8 +708,8 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </div>
 
     <div class="photos">
-      <figure class="stock"><img src="assets/market-women.jpg" alt="Stock photo of two women smiling behind their vegetable stall at an outdoor market" loading="lazy"><span class="stock-tag">Stock photo</span></figure>
-      <figure class="stock"><img src="assets/market-money.jpg" alt="Stock photo of cash being handed over at a market stall" style="object-position:50% 70%" loading="lazy"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/market-women.jpg" alt="" loading="lazy"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/market-money.jpg" alt="" style="object-position:50% 70%" loading="lazy"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
     </div>
 
     <div class="callout bg-peach" style="margin-top:40px">
@@ -707,37 +734,37 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <div class="grid3 flips">
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Community entry, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/community-circle.jpg" alt="Stock photo of women of different ages seated together on the ground under a tree at a rural community gathering" loading="lazy" style="object-position:50% 62%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 1</span><span class="t">Community entry</span><span class="s">Building trust and drawing on what learners already know.</span><span class="hint">Read more ↻</span></div>
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/community-circle.jpg" alt="" loading="lazy" style="object-position:50% 62%"><span class="stock-tag" aria-hidden="true">Stock photo</span></span><span class="label">Session 1</span><span class="t">Community entry</span><span class="s">Building trust and drawing on what learners already know.</span><span class="hint">Read more ↻</span></div>
             <div class="face back bg-surface outline"><span class="bt">Community entry</span><ul class="pts"><li>An Ubuntu name circle builds communal trust</li><li>Freirean picture codes draw out market vocabulary in Chichewa</li><li>“Each one teach one” peer teaching links Chichewa to English</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sky">LO1</span></span><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Rhythm and oral practice, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/singing-clapping.jpg" alt="Stock photo of an older woman laughing, singing and clapping with a group" loading="lazy" style="object-position:50% 28%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 2</span><span class="t">Rhythm and oral practice</span><span class="s">Co-created chants make new phrases stick.</span><span class="hint">Read more ↻</span></div>
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/singing-clapping.jpg" alt="" loading="lazy" style="object-position:50% 28%"><span class="stock-tag" aria-hidden="true">Stock photo</span></span><span class="label">Session 2</span><span class="t">Rhythm and oral practice</span><span class="s">Co-created chants make new phrases stick.</span><span class="hint">Read more ↻</span></div>
             <div class="face back bg-surface outline"><span class="bt">Rhythm and oral practice</span><ul class="pts"><li>Groups build bilingual chants, like “How much is this? / Ndalama zingati?”</li><li>Rhythm and gesture act as memory anchors</li><li>Groups perform for one another</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sky">LO1</span><span class="lochip bg-sage">LO2</span></span><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Market role-play, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/market-stall.jpg" alt="Stock photo of two women laughing together across a market stall of fresh okra" loading="lazy" style="object-position:50% 28%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 3 · Assessed</span><span class="t">Market role-play</span><span class="s">Negotiating as buyers and sellers in two languages.</span><span class="hint">Read more ↻</span></div>
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/market-stall.jpg" alt="" loading="lazy" style="object-position:50% 28%"><span class="stock-tag" aria-hidden="true">Stock photo</span></span><span class="label">Session 3 · Assessed</span><span class="t">Market role-play</span><span class="s">Negotiating as buyers and sellers in two languages.</span><span class="hint">Read more ↻</span></div>
             <div class="face back bg-surface outline"><span class="bt">Market role-play</span><ul class="pts"><li>Visual cue cards support the role-play</li><li>Translanguaging is encouraged</li><li>Peers observe and give feedback</li><li>Formative, authentic assessment</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sky">LO1</span><span class="lochip bg-sage">LO2</span></span><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Banking simulation, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/bank-statement.jpg" alt="Stock photo of hands holding a printed bank statement over a table of financial paperwork" loading="lazy" style="object-position:50% 60%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 4 · Practice</span><span class="t">Banking simulation</span><span class="s">Paper-based banking builds real-world literacy.</span><span class="hint">Read more ↻</span></div>
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/bank-statement.jpg" alt="" loading="lazy" style="object-position:50% 60%"><span class="stock-tag" aria-hidden="true">Stock photo</span></span><span class="label">Session 4 · Practice</span><span class="t">Banking simulation</span><span class="s">Paper-based banking builds real-world literacy.</span><span class="hint">Read more ↻</span></div>
             <div class="face back bg-surface outline"><span class="bt">Banking simulation</span><ul class="pts"><li>Mock deposit slips and tally sheets</li><li>Paper versions of banking app screens</li><li>Practice only, not formally assessed</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-butter">LO3</span></span><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Community market, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/market-exchange.jpg" alt="Stock photo of a buyer and a seller exchanging leafy greens at a busy market stall" loading="lazy" style="object-position:50% 65%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 5 · Summative</span><span class="t">Community market</span><span class="s">Everything comes together in one authentic task.</span><span class="hint">Read more ↻</span></div>
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/market-exchange.jpg" alt="" loading="lazy" style="object-position:50% 65%"><span class="stock-tag" aria-hidden="true">Stock photo</span></span><span class="label">Session 5 · Summative</span><span class="t">Community market</span><span class="s">Everything comes together in one authentic task.</span><span class="hint">Read more ↻</span></div>
             <div class="face back bg-surface outline"><span class="bt">Community market</span><ul class="pts"><li>Learners run stalls, trade and record transactions in both languages</li><li>Supporting a peer counts as much as accuracy</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-sage">LO2</span><span class="lochip bg-butter">LO3</span><span class="lochip bg-lilac">LO4</span></span><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Ubuntu reflection circle, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/reflection-circle.jpg" alt="Stock photo of three women sitting together outdoors by the water, sharing a high five" loading="lazy" style="object-position:50% 52%"><span class="stock-tag">Stock photo</span></span><span class="label">Session 6 · Closing</span><span class="t">Ubuntu reflection circle</span><span class="s">Learners reflect together and shape what comes next.</span><span class="hint">Read more ↻</span></div>
+            <div class="face front bg-surface outline"><span class="sphoto stock"><img src="assets/reflection-circle.jpg" alt="" loading="lazy" style="object-position:50% 52%"><span class="stock-tag" aria-hidden="true">Stock photo</span></span><span class="label">Session 6 · Closing</span><span class="t">Ubuntu reflection circle</span><span class="s">Learners reflect together and shape what comes next.</span><span class="hint">Read more ↻</span></div>
             <div class="face back bg-surface outline"><span class="bt">Ubuntu reflection circle</span><ul class="pts"><li>Learners share what they learned and how the community helped</li><li>They co-evaluate the programme with the facilitator</li><li>Their input feeds the next version</li></ul><span class="lotags"><span class="lolab">Targets</span><span class="lochip bg-lilac">LO4</span></span><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
@@ -853,8 +880,8 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </div>
 
     <div class="photos">
-      <figure class="stock"><img src="assets/sticky-desk.jpg" alt="Stock photo of a desk covered in sticky notes, a notebook with a handwritten checklist and a laptop" loading="lazy" style="object-position:45% 60%"><span class="stock-tag">Stock photo</span></figure>
-      <figure class="stock"><img src="assets/stone-slabs.jpg" alt="Stock photo of natural stone slabs standing in rows in a warehouse" loading="lazy" style="object-position:50% 60%"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/sticky-desk.jpg" alt="" loading="lazy" style="object-position:45% 60%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/stone-slabs.jpg" alt="" loading="lazy" style="object-position:50% 60%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
     </div>
 
     <section style="padding-top:48px;padding-bottom:32px">
@@ -887,7 +914,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <span class="label">Key insight</span>
       <p class="big">She already had a system. It just had nothing solid behind it.</p>
       <ul class="pts lg"><li>The job aid would extend her sticky notes and brain dump sheet, not replace them.</li><li>Everything she tracked would live in one familiar, low-stakes paper tool.</li><li>She could rely on it without asking management first.</li></ul></div>
-        <figure class="stock"><img src="assets/sticky-wall.jpg" alt="Stock photo of handwritten sticky notes pinned to a grey board" loading="lazy" style="object-position:30% 50%"><span class="stock-tag">Stock photo</span></figure>
+        <figure class="stock"><img src="assets/sticky-wall.jpg" alt="" loading="lazy" style="object-position:30% 50%"><span class="stock-tag" aria-hidden="true">Stock photo</span></figure>
       </div>
     </div>
 
@@ -916,7 +943,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </section>
 
     <figure style="margin:0 0 48px;display:flex;flex-direction:column;gap:12px">
-      <div class="stage" data-full></div>
+      <div class="stage" data-full role="img" aria-label="Recreation of the double-sided Daily Card. Side A has a daily workflow sheet with tables for incoming orders and stock allocation. Side B has a four-step discount guide for damaged slabs and a checklist for when to escalate to management."></div>
       <figcaption class="cap">A simplified recreation of the Version 2 card. Business details have been removed.</figcaption>
     </figure>
 
@@ -970,6 +997,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
 
 <footer class="wrap">© 2026 Zandaley Bothma · Cape Town, South Africa</footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden><button type="button" id="lb-close">Close ✕</button><img id="lb-img" alt=""><p id="lb-cap"></p></div>
 <template id="card-mock">
   <div class="paper">
     <div class="t"><b>Daily Card</b><span style="color:#6B675F">Date ________</span></div>
@@ -1023,6 +1051,63 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     b.addEventListener('click',function(e){ if(e.target.closest('a')) return; t(); });
     if(b.tagName!=='BUTTON') b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); t(); } });
   });
+
+  // Gallery lightbox
+  var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lb-img'), lbCap=document.getElementById('lb-cap'), lbClose=document.getElementById('lb-close'), lastFocus=null;
+  function openLb(img){ lastFocus=img; lbImg.src=img.src; lbImg.alt=img.alt; var c=img.closest('figure'); c=c&&c.querySelector('figcaption'); lbCap.textContent=c?c.textContent:''; lb.hidden=false; document.body.style.overflow='hidden'; lbClose.focus(); }
+  function closeLb(){ lb.hidden=true; lbImg.removeAttribute('src'); document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+  document.querySelectorAll('.gallery img').forEach(function(img){
+    img.tabIndex=0; img.setAttribute('role','button'); img.setAttribute('aria-label',img.alt+'. Open larger view');
+    img.addEventListener('click',function(){openLb(img);});
+    img.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLb(img);} });
+  });
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!lb.hidden) closeLb(); });
+
+  // Skip link
+  document.querySelector('.skip').addEventListener('click',function(e){ e.preventDefault(); var h=document.querySelector('[data-page].active h1, [data-page].active h2'); if(h){ h.tabIndex=-1; h.focus(); } });
+
+  // Text size
+  var sizes=[100,112.5,125,137.5], si=0;
+  try{ si=Math.max(0,Math.min(sizes.length-1,parseInt(localStorage.getItem('txtSize')||'0',10)||0)); }catch(e){}
+  function applySize(){ document.documentElement.style.fontSize=sizes[si]+'%'; try{localStorage.setItem('txtSize',String(si));}catch(e){} }
+  applySize();
+  document.getElementById('txt-up').addEventListener('click',function(){ if(si<sizes.length-1){si++;applySize();} });
+  document.getElementById('txt-down').addEventListener('click',function(){ if(si>0){si--;applySize();} });
+
+  // Listen to this page (text to speech)
+  var synth=window.speechSynthesis, lbtn=document.getElementById('listen'), llab=document.getElementById('listen-label');
+  if(synth && window.SpeechSynthesisUtterance){
+    lbtn.hidden=false;
+    var queue=[], playing=false, current=null;
+    function pickVoice(){ var v=synth.getVoices(); return v.find(function(x){return /en-ZA/i.test(x.lang);})||v.find(function(x){return /en-GB/i.test(x.lang);})||v.find(function(x){return /^en/i.test(x.lang);})||null; }
+    function blocks(){
+      var page=document.querySelector('[data-page].active'); var out=[];
+      var nodes=page.querySelectorAll('h1,h2,h3,p,li,figcaption,.t,.s,.bt,.q,.label,.lotags');
+      nodes.forEach(function(n){
+        if(n.closest('.stock-tag,.hint,[aria-hidden="true"],template')) return;
+        if(n.parentElement && n.parentElement.closest('li,p,.t,.s,.bt,.q,.lotags')) return;
+        var t=(n.textContent||'').replace(/[↗→↻↺]/g,'').replace(/\s+/g,' ').trim();
+        if(t) out.push({el:n.closest('.flip')||n, text:t});
+      });
+      return out;
+    }
+    function clearMark(){ if(current){current.classList.remove('speaking'); current=null;} }
+    function next(){
+      clearMark();
+      if(!playing || !queue.length){ stop(); return; }
+      var b=queue.shift(); current=b.el; current.classList.add('speaking');
+      var u=new SpeechSynthesisUtterance(b.text); var v=pickVoice(); if(v) u.voice=v; u.rate=1;
+      u.onend=next; u.onerror=next; synth.speak(u);
+    }
+    function stop(){ playing=false; queue=[]; synth.cancel(); clearMark(); lbtn.setAttribute('aria-pressed','false'); llab.textContent='Listen'; }
+    lbtn.addEventListener('click',function(){
+      if(playing){ stop(); return; }
+      queue=blocks(); playing=true; lbtn.setAttribute('aria-pressed','true'); llab.textContent='Stop'; synth.cancel(); next();
+    });
+    window.addEventListener('hashchange',stop);
+  }
 
   // Copy email
   var btn=document.getElementById('copy-email');
