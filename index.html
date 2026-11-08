@@ -121,6 +121,20 @@ a.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .lolab{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
 .lochip{font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px;color:var(--ink)}
 
+.does{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.does figure{margin:0;border-radius:24px;overflow:hidden;aspect-ratio:3/2;max-width:100%}
+.does img{width:100%;height:100%;object-fit:cover;display:block}
+.feats-col{display:flex;flex-direction:column;gap:28px;min-width:0}
+@media (max-width:900px){.does{grid-template-columns:1fr;gap:28px}}
+
+.process{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;counter-reset:step}
+.process li{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px 20px;display:flex;flex-direction:column;gap:12px;min-width:0;counter-increment:step}
+.process b{display:block;font-size:1.05rem;margin-bottom:4px}
+.process b::before{content:counter(step) ". ";color:var(--muted)}
+.process span:not(.ico){color:var(--muted);font-size:.95rem;line-height:1.5}
+@media (max-width:900px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.process{grid-template-columns:1fr}}
+
 /* journey */
 .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .tile{border-radius:24px;padding:30px 28px;display:flex;flex-direction:column;gap:10px}
@@ -304,11 +318,11 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     </div>
     <div class="grid2">
       <a class="card" href="#cotrace">
-        <div class="thumb logo"><img src="assets/cotrace-logo.png" alt="CoTrace logo showing the Explore, Draft and Refine phases"></div>
+        <div class="thumb logo"><img src="assets/cotrace-logo.png" alt="The CoTrace logo, a blue wordmark above three connected dots labelled Explore, Draft and Refine"></div>
         <div class="body">
           <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning</span>
           <h3>CoTrace</h3>
-          <p>A concept platform that makes human–AI collaboration visible in assessment, capturing the moments learners challenge, reject or rethink AI suggestions.</p>
+          <p>A concept for AI-integrated learning that keeps students doing the thinking, and makes that thinking visible.</p>
           <span class="more">Read case study →</span>
         </div>
       </a>
@@ -412,171 +426,131 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <header class="cs-head band bg-lilac">
       <div class="cs-title">
         <div class="stack" style="gap:20px">
-          <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning · Concept in progress</span>
-          <h1>CoTrace, making human–AI collaboration visible</h1>
-          <p class="lead">A concept platform that captures the moments students question, reject or rethink AI suggestions, and turns them into reflection that can be assessed.</p>
+          <span class="tag bg-lilac" style="align-self:flex-start">AI-integrated learning · Concept in development</span>
+          <h1>CoTrace, keeping students’ thinking visible when they learn with AI</h1>
+          <p class="lead">A concept for an AI-integrated learning platform that keeps students doing the thinking, and makes that thinking visible enough to learn from and assess.</p>
         </div>
-        <img class="cs-logo" src="assets/cotrace-logo.png" alt="CoTrace logo">
+        <img class="cs-logo" src="assets/cotrace-logo.png" alt="The CoTrace logo, a blue wordmark above three connected dots labelled Explore, Draft and Refine">
       </div>
       <div class="facts">
-        <div><span class="label">Status</span><p>Concept document, version 3 (2026)</p></div>
-        <div><span class="label">Learners</span><p>Humanities undergraduates and their educators</p></div>
-        <div><span class="label">Grounding</span><p>Generativism, affordances and constraints, care ethics</p></div>
-        <div><span class="label">Outputs</span><p>Concept document, Explore screen wireframe, brand identity, <a href="#facilitator-module">facilitator orientation module</a></p></div>
+        <div><span class="label">Context</span><p>AI-integrated learning in higher education</p></div>
+        <div><span class="label">Learners</span><p>Undergraduate students and their educators</p></div>
+        <div><span class="label">Grounding</span><p>Generativism, affordances and constraints, productive struggle</p></div>
+        <div><span class="label">Stage</span><p>Concept, wireframes, prototype and pilot plan</p></div>
       </div>
     </header>
 
     <div class="challenge">
-      <div class="head"><span class="label">The challenge</span><p class="q">Students have powerful AI tools but little structure for using them to think, not just to write.</p></div>
+      <div class="head"><span class="label">The challenge</span><p class="q">Students are using AI without structure, and their thinking is disappearing from view.</p></div>
       <div class="body">
         <ul class="pts lg">
-          <li>Students tend to use AI to generate text, not to question and push their thinking.</li>
-          <li>Most tertiary settings offer little structure for how AI is used.</li>
-          <li>Reflections written after the fact add admin and rarely capture what actually happened.</li>
+          <li>With no guidance, students reach for AI’s easiest use, generating text, instead of using it to think.</li>
+          <li>The reasoning behind a piece of work becomes invisible to the student and the educator.</li>
+          <li>Passive consumption replaces the productive struggle where real learning happens.</li>
         </ul>
       </div>
     </div>
-    <section style="padding-top:48px;padding-bottom:16px">
-      <div class="stack" style="gap:12px;margin-bottom:24px"><span class="label">What CoTrace does</span><h2>It makes the thinking behind AI use visible</h2></div>
-      <div class="grid3 feats">
-        <div class="feat"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg></span><div><b>Captures turning points</b><span>Decisions, revisions and changes of direction are recorded as they happen.</span></div></div>
-        <div class="feat"><span class="ico bg-sky"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><div><b>Prompts reflection in the moment</b><span>Students explain what changed and why, then learn to notice on their own.</span></div></div>
-        <div class="feat"><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></span><div><b>Makes the process assessable</b><span>Reflections are submitted alongside the final draft for the marker.</span></div></div>
-      </div>
-    </section>
 
-    <section style="padding-top:40px;padding-bottom:40px">
-      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The student experience</span><h2>Each section of an assignment moves through three phases</h2></div>
-      <div class="grid3 flips">
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Explore, flip for details">
-          <div class="inner">
-            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><span class="label">Phase 1</span><span class="t">Explore</span><span class="s">AI acts as a Socratic opponent.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-sky"><span class="bt">Explore</span><ul class="pts"><li>The AI questions, pushes back and surfaces productive tension</li><li>A three-panel workspace with AI dialogue, sources and saved notes</li><li>Confusion detection and an “I’m stuck” button for guided source exploration</li></ul><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Draft, flip for details">
-          <div class="inner">
-            <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><span class="label">Phase 2</span><span class="t">Draft</span><span class="s">The student’s own writing comes first.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-sage"><span class="bt">Draft</span><ul class="pts"><li>Students write their own section from what they explored</li><li>A deliberately narrower AI panel signals that the AI doesn’t lead</li><li>The AI stays available for questions only</li></ul><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Refine, flip for details">
-          <div class="inner">
-            <div class="face front bg-peach"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="label">Phase 3</span><span class="t">Refine</span><span class="s">Supportive AI that asks, never rewrites.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-peach"><span class="bt">Refine</span><ul class="pts"><li>The AI flags areas to look at and asks guiding questions</li><li>Checks for academic tone, cohesion and referencing, each as a question</li><li>Every improvement is made by the student</li></ul><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="callout bg-lilac">
-      <span class="label">How reflection is triggered</span>
-      <p class="big">Three signals mark a significant learning moment</p>
-      <div class="signals">
-        <div><strong>Divergence</strong><span>The student moves away from an AI suggestion</span></div>
-        <div><strong>Pushback</strong><span>The student explicitly challenges the AI</span></div>
-        <div><strong>Reconsideration</strong><span>The student revises their argument or direction</span></div>
-      </div>
-      <ul class="pts"><li>A reflection prompt appears, matched to the phase, asking about conceptual shifts, writing decisions or editorial judgement.</li><li>Students can log a reflection at any time.</li><li>Prompts appear less often over time, as students learn to notice for themselves.</li></ul>
+    <div class="photos">
+      <figure class="stock"><img src="assets/ai-chat-screen.jpg" alt="Stock photo of an AI chatbot start screen on a curved monitor in a dark room" loading="lazy" style="object-position:50% 45%"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/human-code.jpg" alt="Stock photo of a woman in profile with lines of binary code projected across her face" loading="lazy" style="object-position:42% 50%"><span class="stock-tag">Stock photo</span></figure>
     </div>
 
-    <section style="padding-top:40px;padding-bottom:16px">
-      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Navigation and submission</span><h2>Structure that guides without trapping</h2></div>
-      <div class="grid2 flips">
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Gated navigation, flip for details">
-          <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="t">Gated navigation</span><span class="s">Move back anytime; move forward when a phase is done.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Gated navigation</span><ul class="pts"><li>A persistent bar shows Explore, Draft and Refine</li><li>Work saves automatically</li><li>Draft unlocks after Explore; Refine unlocks after Draft is submitted</li></ul><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Section summary and submission, flip for details">
-          <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-rose"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></span><span class="t">Section summary and submission</span><span class="s">Reflections go to the marker with the final draft.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Section summary and submission</span><ul class="pts"><li>Each section ends with a summary of signals, reflections and sources</li><li>Every number links to the moments behind it</li><li>A timestamped, non-editable reflection record sits beside the editable final draft</li></ul><span class="hint">Flip back ↺</span></div>
-          </div>
+    <section style="padding-top:48px;padding-bottom:16px">
+      <div class="stack" style="gap:12px;margin-bottom:24px"><span class="label">The idea</span><h2>Design the conditions, not just the tool</h2></div>
+      <div class="does">
+        <figure class="stock"><img src="assets/ai-butterflies.jpg" alt="Stock photo of a lilac paper head silhouette beside the letters AI, with paper butterflies rising from it" loading="lazy"><span class="stock-tag">Stock photo</span></figure>
+        <div class="feats-col">
+          <p style="font-size:1.1rem">AI can already do a lot. My question was different. What would it take for students to meet AI in a way that sharpens their thinking instead of replacing it?</p>
+          <p style="font-size:1.1rem">CoTrace is my answer in concept form. It shapes how students work with AI, so the learning uses are easy to reach and the shortcuts are harder to take.</p>
         </div>
       </div>
     </section>
 
-    <section style="padding-top:24px;padding-bottom:24px">
-      <div class="callout bg-sky" id="wireframe">
-        <span class="label">Wireframe</span>
-        <p class="big">See how the three phases come together on screen</p>
-        <p>The Explore screen, annotated with the design decisions behind it.</p>
-        <figure style="margin:8px 0 0;display:flex;flex-direction:column;gap:12px">
-          <img src="assets/cotrace-wireframe.png" alt="CoTrace Explore screen wireframe with three panels showing AI dialogue in Socratic mode with an I'm stuck button, sources with suggested exploration prompts, and saved notes. Annotations explain gated phase navigation, phase-adaptive reflection prompts, and a reflection pop-up that appears less often over time." style="width:100%;border-radius:16px;border:1px solid var(--line);background:#FFFFFF;display:block" loading="lazy">
-          <figcaption class="cap" style="max-width:48rem">Reflection prompts appear less often over time, so students gradually take over the noticing.</figcaption>
-        </figure>
-        <div class="ctas"><a class="btn primary" href="https://whimsical.com/cotrace-wireframe/cotrace-wireframe-QnKkgC2MHygkDQVKBLRUVP" target="_blank" rel="noopener">Open the full wireframe ↗</a></div>
+    <section style="padding-top:48px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">My reasoning</span><h2>The theory behind the design</h2></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Generativism, flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span><span class="t">Generativism</span><span class="s">Learning happens when students make meaning, not when they receive it.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Generativism</span><ul class="pts"><li>Real learning with AI is active, not a matter of collecting answers</li><li>So students need to stay in the role of directing AI</li><li>Their own ideas and judgement stay at the centre of the work</li></ul><span class="refs">Pratschke (2024)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Affordances and constraints, flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-sky"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span><span class="t">Affordances and constraints</span><span class="s">Potential alone isn’t enough. Structure turns it into learning.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Affordances and constraints</span><ul class="pts"><li>A tool’s potential doesn’t guarantee how people will use it</li><li>Thoughtful structure guides people towards its most valuable uses</li><li>So CoTrace is designed as a set of supportive constraints, not a list of features</li></ul><span class="refs">Day and Lloyd (2007)</span><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Productive struggle, flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-peach"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span><span class="t">Productive struggle</span><span class="s">A bit of difficulty is where the learning happens.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Productive struggle</span><ul class="pts"><li>Wrestling with an idea builds understanding</li><li>AI that removes all friction also removes the learning</li><li>CoTrace keeps the useful struggle and takes away the unhelpful kind</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Student agency, flip for details">
+          <div class="inner">
+            <div class="face front bg-surface outline"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><span class="t">Student agency</span><span class="s">The work and the thinking stay the student’s own.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Student agency</span><ul class="pts"><li>Students make the decisions and do the writing</li><li>Support aims to build their capability, not replace it</li><li>Care for the learner means protecting their voice</li></ul><span class="hint">Flip back ↺</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section style="padding-top:40px;padding-bottom:24px">
-      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">The pedagogy underneath</span><h2>Every feature is a deliberate design constraint</h2>
-        <p class="lead">CoTrace doesn’t change what AI can do. It changes the context students meet it in.</p></div>
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Design principles</span><h2>What guides every decision</h2></div>
       <div class="grid3 flips">
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Affordances and constraints, flip for details">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="AI as a thinking partner, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-sky"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span><span class="t">Affordances and constraints</span><span class="s">Structure is what turns AI’s potential into learning.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Affordances and constraints</span><ul class="pts"><li>AI can support critical thinking, but potential alone isn’t enough</li><li>Without guidance, students default to generating text</li><li>CoTrace is a constraint architecture, where phases, gated navigation and required reflection steer students towards AI as a thinking partner</li></ul><span class="refs">Day and Lloyd (2007)</span><span class="hint">Flip back ↺</span></div>
+            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span class="t">AI as a thinking partner</span><span class="s">AI that questions and challenges, instead of answering for you.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sky"><span class="bt">AI as a thinking partner</span><ul class="pts"><li>Students think alongside AI, not behind it</li><li>The AI’s role is to push their reasoning further</li><li>Students stay in charge of the final work</li></ul><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Generativism, flip for details">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Visible reflection, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span><span class="t">Generativism</span><span class="s">Students generate meaning instead of consuming AI output.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Generativism</span><ul class="pts"><li>Learning with AI should be active meaning-making</li><li>The repeating three-phase cycle follows the EDGIM model</li><li>Aligned with AI Assessment Scale levels 3–4, where students direct the AI</li></ul><span class="refs">Pratschke (2024); Perkins et al. (2024)</span><span class="hint">Flip back ↺</span></div>
+            <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg></span><span class="t">Visible reflection</span><span class="s">The thinking behind the work becomes part of the work.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-sage"><span class="bt">Visible reflection</span><ul class="pts"><li>Students capture the moments their thinking shifts</li><li>Educators can see the process, not just the product</li><li>Reflection becomes something students can learn from and be assessed on</li></ul><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Metacognitive agency, flip for details">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Support that fades, flip for details">
           <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></svg></span><span class="t">Metacognitive agency</span><span class="s">Students learn to notice and explain their own thinking.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Metacognitive agency</span><ul class="pts"><li>Agency depends on awareness of one’s own thinking</li><li>Reflection questions change with each phase</li><li>The timestamped reflection record builds evaluative judgement over repeated cycles</li></ul><span class="refs">Roe and Perkins (2024); Bearman et al. (2024)</span><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Care ethics, flip for details">
-          <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-peach"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><span class="t">Care ethics</span><span class="s">Good support protects the learner’s own capability.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Care ethics</span><ul class="pts"><li>The Refine AI asks guiding questions instead of correcting</li><li>Support is withdrawn gradually as students grow more capable</li><li>Grounded in a care ethics framework for GenAI design</li></ul><span class="refs">Olesova, Yu and Garcia de Hurtado (2025); Noddings</span><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Multimodality, flip for details">
-          <div class="inner">
-            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><span class="t">Multimodality</span><span class="s">Students can read or listen, and type or speak.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-surface outline"><span class="bt">Multimodality</span><ul class="pts"><li>Each mode carries meaning the others can’t</li><li>Content comes as text and audio</li><li>Spoken reflection is often faster and more candid</li><li>Visual argument maps are a future direction</li></ul><span class="refs">Kress; Mayer (future direction)</span><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What it doesn’t claim, flip for details">
-          <div class="inner">
-            <div class="face front solid"><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span><span class="t">What it doesn’t claim</span><span class="s">Better conditions for engagement, not a guarantee.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back solid"><span class="bt">What it doesn’t claim</span><ul class="pts"><li>AI and assessment is a wicked problem</li><li>CoTrace isn’t a surveillance or academic integrity tool</li><li>It makes the learning process visible enough to assess</li></ul><span class="refs">Corbin et al. (2025)</span><span class="hint">Flip back ↺</span></div>
+            <div class="face front bg-peach"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><span class="t">Support that fades</span><span class="s">Scaffolding steps back as students grow.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-peach"><span class="bt">Support that fades</span><ul class="pts"><li>Early on, students get more guidance</li><li>Over time, they take over the noticing themselves</li><li>The goal is independence, not reliance on the platform</li></ul><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section style="padding-top:40px;padding-bottom:40px">
-      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Pilot plan</span><h2>Testing the pedagogy before building the platform</h2></div>
-      <div class="grid3 flips">
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Who, flip for details">
+    <section style="padding-top:40px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Process</span><h2>From research to a pilot-ready concept</h2></div>
+      <ol class="process">
+        <li><span class="ico bg-sky"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><div><b>Research</b><span>Dug into learning theory and current debates on AI in higher education.</span></div></li>
+        <li><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><div><b>Concept</b><span>Developed and reworked the concept across three versions.</span></div></li>
+        <li><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><div><b>Wireframes</b><span>Mapped the student experience screen by screen. Available on request.</span></div></li>
+        <li><span class="ico bg-peach"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 12.586 19 19"/><path d="M3.688 3.037a.497.497 0 0 0-.651.651l6.5 15.999a.501.501 0 0 0 .947-.062l1.569-6.083a2 2 0 0 1 1.448-1.479l6.124-1.579a.5.5 0 0 0 .063-.947z"/></svg></span><div><b>Prototype</b><span>Built a working prototype to test how the experience feels. Available on request.</span></div></li>
+        <li><span class="ico bg-lilac"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><div><b>Pilot plan</b><span>Planned a small pilot to test the pedagogy before any development.</span></div></li>
+      </ol>
+    </section>
+
+    <section style="padding-top:40px;padding-bottom:24px">
+      <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Outcomes and reflection</span><h2>Where it landed, and what I learned</h2></div>
+      <div class="grid2 flips">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Outcomes, flip for details">
           <div class="inner">
-            <div class="face front bg-sky"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="t">Who</span><span class="s">Second- and third-year humanities undergraduates.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-sky"><span class="bt">Who</span><ul class="pts"><li>Enough academic grounding to describe their experience</li><li>Enough of their degree left to benefit from the scaffold</li></ul><span class="hint">Flip back ↺</span></div>
+            <div class="face front bg-surface outline"><span class="ico bg-sage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></span><span class="t">Outcomes</span><span class="s">A pilot-ready concept, and a related project built on it.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">Outcomes</span><ul class="pts"><li>A concept now in its third version</li><li>Wireframes and a working prototype of the student experience</li><li>A pilot plan to test the pedagogy before building anything</li><li>A <a href="#facilitator-module">facilitator orientation module</a> to help educators adopt it</li></ul><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="How, flip for details">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What I learned, flip for details">
           <div class="inner">
-            <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><span class="t">How</span><span class="s">A facilitated simulation, before any code is written.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-sage"><span class="bt">How</span><ul class="pts"><li>One assignment section through all three phases</li><li>Existing AI tools stand in for CoTrace</li><li>A D2L Brightspace sandbox simulates the workflow</li><li>Sessions are observed in real time, followed by a survey</li></ul><span class="hint">Flip back ↺</span></div>
-          </div>
-        </div>
-        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="What success looks like, flip for details">
-          <div class="inner">
-            <div class="face front bg-peach"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="t">What success looks like</span><span class="s">Students question AI without being prompted.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-peach"><span class="bt">What success looks like</span><ul class="pts"><li>Questioning AI output unprompted</li><li>Explaining rejected or changed AI suggestions unasked</li><li>Spotting moments of tension or divergence independently</li><li>Observation counts for more than self-report</li></ul><span class="hint">Flip back ↺</span></div>
+            <div class="face front bg-surface outline"><span class="ico bg-butter"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><span class="t">What I learned</span><span class="s">Good AI design is about constraints as much as capabilities.</span><span class="hint">Read more ↻</span></div>
+            <div class="face back bg-surface outline"><span class="bt">What I learned</span><ul class="pts"><li>The most important design decisions were about what the AI shouldn’t do</li><li>Honesty matters. CoTrace aims for better conditions for learning, not a guarantee</li><li>Theory gave me a clear reason for every choice I made</li></ul><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
       </div>
     </section>
+
+    <p class="note" style="margin-top:8px">Wireframes, the prototype and full design documentation are available on request. Email me at <a href="mailto:zandaley@gmail.com">zandaley@gmail.com</a>.</p>
 
     <a class="next" href="#facilitator-module"><span class="stack" style="gap:6px"><span class="label">Related project</span><h3>Facilitator Orientation Module for teaching with CoTrace</h3></span><span class="arrow">→</span></a>
   </div>
@@ -611,6 +585,11 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <ul class="pts lg"><li>An AI pedagogical agent guides facilitators through the module.</li><li>It narrates early on and steps back as they gain confidence.</li><li>It models the behaviour they’ll need with students, guiding with questions instead of answers.</li></ul>
     </div>
 
+    <div class="photos">
+      <figure class="stock"><img src="assets/online-training.jpg" alt="Stock photo of a woman wearing headphones working through an online course on her laptop" loading="lazy" style="object-position:50% 50%"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/workshop.jpg" alt="Stock photo of educators seated around tables in a bright workshop room, watching a presentation" loading="lazy" style="object-position:40% 60%"><span class="stock-tag">Stock photo</span></figure>
+    </div>
+
     <section style="padding-top:48px;padding-bottom:24px">
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Module structure</span><h2>Four units, each with an activity and an assessment</h2></div>
       <div class="units flips">
@@ -623,7 +602,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="From correcting to guiding, flip for details">
           <div class="inner">
             <div class="face front bg-sage"><span class="ico bg-surface"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span><span class="label">Unit 2</span><span class="t">From correcting to guiding</span><span class="s">Giving answers versus asking questions.</span><span class="hint">Read more ↻</span></div>
-            <div class="face back bg-sage"><span class="bt">From correcting to guiding</span><ul class="pts"><li><b>Activity</b><br>Paired transcript comparison with demo videos</li><li><b>Assessment</b><br>Guiding a mock student through all three phases</li><li><b>Feedback</b><br>An AI first pass, then a fuller human comment</li></ul><span class="hint">Flip back ↺</span></div>
+            <div class="face back bg-sage"><span class="bt">From correcting to guiding</span><ul class="pts"><li><b>Activity</b><br>Paired transcript comparison with demo videos</li><li><b>Assessment</b><br>Guiding a mock student through a CoTrace task</li><li><b>Feedback</b><br>An AI first pass, then a fuller human comment</li></ul><span class="hint">Flip back ↺</span></div>
           </div>
         </div>
         <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Evaluating the process, flip for details">
@@ -663,11 +642,12 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <div class="stack" style="gap:12px;margin-bottom:28px"><span class="label">Storyboard and wireframes</span><h2>Selected screens</h2></div>
       <div class="gallery">
         <figure><img src="assets/fom-dashboard.jpg" alt="Landing page and facilitator dashboard wireframes, with four units, a reflective journal and an AI guide" loading="lazy"><figcaption class="cap">The landing page and dashboard. Units unlock in order, and the AI guide introduces itself.</figcaption></figure>
-        <figure><img src="assets/fom-transcript.jpg" alt="Unit 2 learning activity wireframe comparing an answer-checking video with a Socratic thinking partner video" loading="lazy"><figcaption class="cap">In Unit 2, the same student queries are handled two ways, then annotated.</figcaption></figure>
-        <figure><img src="assets/fom-mock-student.jpg" alt="Unit 2 assessment wireframe where facilitators respond to a mock student, with a procedural rubric alongside" loading="lazy"><figcaption class="cap">In the Unit 2 assessment, facilitators guide a mock student through all three phases.</figcaption></figure>
+        <figure><img src="assets/fom-transcript.jpg" alt="Unit 2 learning activity wireframe comparing an answer-checking video with a thinking partner video" loading="lazy"><figcaption class="cap">In Unit 2, the same student queries are handled two ways, then annotated.</figcaption></figure>
+        <figure><img src="assets/fom-mock-student.jpg" alt="Unit 2 assessment wireframe where facilitators respond to a mock student, with a rubric alongside" loading="lazy"><figcaption class="cap">In the Unit 2 assessment, facilitators guide a mock student through a CoTrace task.</figcaption></figure>
         <figure><img src="assets/fom-think-aloud.jpg" alt="Unit 4 activity wireframe with a think-aloud modelling video and an AI agent asking reflective questions" loading="lazy"><figcaption class="cap">In Unit 4, the agent pauses an expert’s think-aloud to ask about each judgement call.</figcaption></figure>
       </div>
-      <div class="ctas" style="margin-top:28px"><a class="btn primary" href="assets/facilitator-module-storyboard.pdf" target="_blank" rel="noopener">View the full storyboard (PDF) ↗</a><a class="btn" href="#cotrace">About CoTrace</a></div>
+      <p class="note" style="margin-top:24px">The full storyboard and wireframes are available on request. Email me at <a href="mailto:zandaley@gmail.com">zandaley@gmail.com</a>.</p>
+      <div class="ctas" style="margin-top:16px"><a class="btn" href="#cotrace">About CoTrace</a></div>
     </section>
 
     <a class="next" href="#adult-literacy"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>Adult literacy curriculum</h3></span><span class="arrow">→</span></a>
@@ -867,6 +847,11 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <div class="body">
         <ul class="pts lg"><li>No manual, training plan or formal onboarding.</li><li>She coped with sticky notes, handwritten lists and a “brain dump” planning sheet.</li><li>Discount rules, stock and order details meant asking a busy manager.</li><li>Waiting slowed down her replies to clients.</li></ul>
       </div>
+    </div>
+
+    <div class="photos">
+      <figure class="stock"><img src="assets/sticky-desk.jpg" alt="Stock photo of a desk covered in sticky notes, a notebook with a handwritten checklist and a laptop" loading="lazy" style="object-position:45% 60%"><span class="stock-tag">Stock photo</span></figure>
+      <figure class="stock"><img src="assets/stone-slabs.jpg" alt="Stock photo of natural stone slabs standing in rows in a warehouse" loading="lazy" style="object-position:50% 60%"><span class="stock-tag">Stock photo</span></figure>
     </div>
 
     <section style="padding-top:48px;padding-bottom:32px">
