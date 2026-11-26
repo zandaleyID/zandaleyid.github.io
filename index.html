@@ -188,6 +188,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;bac
 .chips .tag:nth-child(even){transform:rotate(1.5deg)}
 .chips .tag:hover{transform:rotate(0) translateY(-3px) scale(1.06)}
 
+.chips a.tag{text-decoration:none;cursor:pointer}
+.chips a.tag:hover{text-decoration:underline;text-underline-offset:3px}
 /* cards lift and tilt */
 a.card{transition:transform .3s cubic-bezier(.2,.8,.3,1.2),box-shadow .3s ease}
 a.card:nth-child(odd):hover{transform:translateY(-6px) rotate(-.8deg)}
@@ -429,10 +431,10 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
           <a class="btn" href="assets/Zandaley-Bothma-CV.pdf" target="_blank" rel="noopener">Download CV</a>
         </div>
         <div class="chips">
-          <span class="tag bg-peach">Curriculum design</span>
-          <span class="tag bg-sage">Co-design and job aids</span>
-          <span class="tag bg-sky">Multimodal learning</span>
-          <span class="tag bg-lilac">AI-integrated learning</span>
+          <a class="tag bg-peach" href="#adult-literacy">Curriculum design</a>
+          <a class="tag bg-sage" href="#daily-card">Co-design and job aids</a>
+          <a class="tag bg-sky" href="#facilitator-module">Multimodal learning</a>
+          <a class="tag bg-lilac" href="#cotrace">AI-integrated learning</a>
         </div>
       </div>
       <div class="photo-wrap"><span class="tape" aria-hidden="true"></span><svg class="cut sun" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><g fill="#F2B84B" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round" paint-order="stroke"><path d="M60 4 68 30 92 14 84 40 112 40 90 58 112 76 84 78 94 104 68 90 60 116 52 90 26 104 36 78 8 76 30 58 8 40 36 40 28 14 52 30Z"/><circle cx="60" cy="60" r="24" fill="#F7D36B"/></g></svg><img class="photo" src="assets/headshot.jpg" alt="Portrait of Zandaley Bothma, smiling, with long brown hair, wearing a lilac shirt and black blazer" width="360" height="450"><svg class="cut star" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><path d="M30 4 37 22 56 23 41 35 46 54 30 43 14 54 19 35 4 23 23 22Z" fill="#3F5A8C" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/></svg><svg class="cut cloud" viewBox="0 0 140 80" aria-hidden="true" focusable="false"><path d="M30 70h80a24 24 0 0 0 2-48 32 32 0 0 0-60-6 22 22 0 0 0-30 18A26 26 0 0 0 30 70Z" fill="#FFFFFF" stroke="#E6E0D6" stroke-width="3"/></svg></div>
