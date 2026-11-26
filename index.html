@@ -357,6 +357,19 @@ ul.pts.lg{font-size:1.05rem;gap:10px}
 .step em{color:#6B675F;font-size:10px}
 .z1{background:#DCE8F4}.z2{background:#DDEADF}.z3{background:#F4DEE4}
 
+/* availability + timeline */
+.eyebrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;font-weight:600;padding:7px 16px;border-radius:999px;background:var(--sage);color:var(--ink);line-height:1.4}
+.avail i{width:9px;height:9px;border-radius:50%;background:#3E8E5A;flex:none}
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:20px;max-width:52rem}
+.timeline li{position:relative;padding-left:46px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.timeline li::before{content:"";position:absolute;left:0;top:4px;width:24px;height:24px;box-sizing:border-box;border-radius:50%;background:var(--dot);border:2px solid var(--ink)}
+.timeline li:not(:last-child)::after{content:"";position:absolute;left:11px;top:32px;bottom:-20px;width:2px;background:var(--line)}
+.timeline h3{font-size:1.3rem}
+.timeline p{color:var(--muted);font-size:.98rem;line-height:1.6}
+.quals{margin-top:32px;max-width:52rem}
+.quals p{font-size:.98rem;line-height:1.6}
+
 [data-page]{display:none}
 [data-page].active{display:block}
 footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
@@ -408,9 +421,9 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
   <div class="wrap">
     <div class="hero">
       <div class="stack">
-        <span class="tag" style="align-self:flex-start">Instructional designer · Cape Town, South Africa</span>
-        <h1>An educator of eight years, now designing AI-integrated learning with <span style="white-space:nowrap">human-centred</span> design at its heart.</h1>
-        <p class="lead">After eight years of teaching, from university writing support to classrooms in Hanoi and online lessons with young learners, I’ve moved into instructional design. I believe creativity and empathy lie at the heart of good learning design. I want to use AI-integrated learning to its full potential, while keeping what makes learning human at the centre, including the learner’s own thinking, voice and connection to others.</p>
+        <div class="eyebrow"><span class="avail"><i aria-hidden="true"></i>Open to internships and entry-level instructional design roles · Remote or Cape Town</span><span class="tag">Instructional designer · Cape Town, South Africa</span></div>
+        <h1>Eight years of teaching, now designing AI-integrated learning with people at the centre.</h1>
+        <p class="lead">I’ve taught everywhere from university writing support to classrooms in Hanoi and online lessons with young learners. Now I design learning that uses AI well while protecting what makes it human: the learner’s own thinking, voice and connection to others.</p>
         <div class="ctas">
           <a class="btn primary" href="#work">View my work</a>
           <a class="btn" href="assets/Zandaley-Bothma-CV.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -433,6 +446,15 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <p class="muted">Four projects that show how I design for different people and contexts.</p>
     </div>
     <div class="grid2">
+      <a class="card" href="#daily-card">
+        <div class="thumb stock"><img src="assets/office-admin.jpg" alt="" style="object-position:60% 40%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
+        <div class="body">
+          <span class="tag bg-sage" style="align-self:flex-start">Real client · Tested with a real user</span>
+          <h3>Daily Card, a co-designed job aid</h3>
+          <p>A low-fidelity desk card co-designed with a new admin assistant who was learning her role with no formal onboarding.</p>
+          <span class="more">Read case study →</span>
+        </div>
+      </a>
       <a class="card" href="#cotrace">
         <div class="thumb stock"><img src="assets/human-ai-hands.jpg" alt="" style="object-position:50% 50%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
         <div class="body">
@@ -460,15 +482,6 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
           <span class="more">Read case study →</span>
         </div>
       </a>
-      <a class="card" href="#daily-card">
-        <div class="thumb stock"><img src="assets/office-admin.jpg" alt="" style="object-position:60% 40%"><span class="stock-tag" aria-hidden="true">Stock photo</span></div>
-        <div class="body">
-          <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
-          <h3>Daily Card, a co-designed job aid</h3>
-          <p>A low-fidelity desk card co-designed with a new admin assistant who was learning her role with no formal onboarding.</p>
-          <span class="more">Read case study →</span>
-        </div>
-      </a>
     </div>
   </section>
 
@@ -493,39 +506,19 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
       <h2>My journey into learning design</h2>
       <p class="lead">Eight years in education, from university writing support to classrooms in Hanoi and online, taught me how learners actually respond to a lesson. That’s still the first thing I design for.</p>
     </div>
-    <div class="grid4">
-      <button class="flip" type="button" aria-pressed="false">
-        <span class="inner">
-          <span class="face front bg-sky"><span class="label">2017–2018 · University of the Free State</span><span class="t">Academic literacy facilitator and writing consultant</span><span class="hint">Read more ↻</span></span>
-          <span class="face back bg-sky"><span class="d">Taught first-year business economics students academic English and business vocabulary (Unit for Language Development, 2018), and gave one-on-one writing support at the Writing Centre (Centre for Teaching and Learning, 2017–2018).</span><span class="hint">Flip back ↺</span></span>
-        </span>
-      </button>
-      <button class="flip" type="button" aria-pressed="false">
-        <span class="inner">
-          <span class="face front bg-butter"><span class="label">2019–2025 · Hanoi, Vietnam</span><span class="t">ESL and secondary English teacher</span><span class="hint">Read more ↻</span></span>
-          <span class="face back bg-butter"><span class="d">Taught kindergarten to Grade 7 with Language Link Vietnam and created original materials for each class. Named Teacher of the Year at Ly Thai To Secondary School (Semester 1, 2024–2025).</span><span class="hint">Flip back ↺</span></span>
-        </span>
-      </button>
-      <button class="flip" type="button" aria-pressed="false">
-        <span class="inner">
-          <span class="face front bg-rose"><span class="label">2020, 2025–present · Remote</span><span class="t">Online English teacher</span><span class="hint">Read more ↻</span></span>
-          <span class="face back bg-rose"><span class="d">Live one-on-one lessons for learners aged 5 to 16 with Nice Tutor via ClassIn, working across time zones from South Africa.</span><span class="hint">Flip back ↺</span></span>
-        </span>
-      </button>
-      <button class="flip" type="button" aria-pressed="false">
-        <span class="inner">
-          <span class="face front bg-lilac"><span class="label">Qualifications</span><span class="t">Learning design, journalism and TEFL</span><span class="hint">Read more ↻</span></span>
-          <span class="face back bg-lilac"><span class="d">Postgraduate Diploma in Instructional Design (in progress), a Bachelor of Journalism from Rhodes University, and a 150-hour TEFL/TESOL certificate.</span><span class="hint">Flip back ↺</span></span>
-        </span>
-      </button>
-    </div>
+    <ol class="timeline">
+      <li style="--dot:var(--rose)"><span class="label">2020, 2025–present · Remote</span><h3>Online English teacher</h3><p>Live one-on-one lessons for learners aged 5 to 16 with Nice Tutor via ClassIn, working across time zones from South Africa.</p></li>
+      <li style="--dot:var(--butter)"><span class="label">2019–2025 · Hanoi, Vietnam</span><h3>ESL and secondary English teacher</h3><p>Taught kindergarten to Grade 7 with Language Link Vietnam and created original materials for each class. Named Teacher of the Year at Ly Thai To Secondary School (Semester 1, 2024–2025).</p></li>
+      <li style="--dot:var(--sky)"><span class="label">2017–2018 · University of the Free State</span><h3>Academic literacy facilitator and writing consultant</h3><p>Taught first-year business economics students academic English and business vocabulary (Unit for Language Development, 2018), and gave one-on-one writing support at the Writing Centre (Centre for Teaching and Learning, 2017–2018).</p></li>
+    </ol>
+    <div class="panel bg-lilac quals"><span class="label">Qualifications</span><h3>Learning design, journalism and TEFL</h3><p>Postgraduate Diploma in Instructional Design (in progress), a Bachelor of Journalism from Rhodes University, and a 150-hour TEFL/TESOL certificate.</p></div>
   </section>
 
   <section id="contact" class="wrap" style="padding-top:24px">
     <div class="stickers" aria-hidden="true"><span class="stk stk-plane c1"><svg viewBox="0 0 100 80"><g stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round" paint-order="stroke"><path fill="#DCE8F4" d="M4 38 94 6 66 74 46 50Z"/><path fill="#B8CFE8" d="M46 50 94 6 52 68Z"/></g></svg></span><span class="stk stk-flower c2"><svg viewBox="0 0 100 100"><g stroke="#FFFFFF" stroke-width="5" paint-order="stroke"><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(0 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(72 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(144 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(216 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="13" fill="#F7D36B"/></g></svg></span></div>
     <div class="contact">
       <h2>Let’s design learning that keeps people at the centre.</h2>
-      <p>Open to entry-level instructional design and learning design roles, remote or in Cape Town.</p>
+      <p>Open to internships and entry-level instructional design and learning design roles, remote or in Cape Town.</p>
       <div class="row">
         <span><a href="mailto:zandaley@gmail.com">zandaley@gmail.com</a> <button class="copy" type="button" id="copy-email">Copy</button></span>
         <a href="https://www.linkedin.com/in/zandaley-bothma-1b040b372/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -939,7 +932,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     <div class="ctas" style="margin-block:8px 16px"><a class="btn primary" href="assets/adult-literacy-curriculum.pdf" target="_blank" rel="noopener">View the full curriculum table (PDF) ↗</a></div>
     <p class="note">This is a conceptual design developed for my Postgraduate Diploma in Instructional Design. It has not been delivered to learners.</p>
 
-    <a class="next" href="#daily-card"><span class="stack" style="gap:6px"><span class="label">Next project</span><h3>Daily Card, a co-designed job aid</h3></span><span class="arrow">→</span></a>
+    <a class="next" href="#work"><span class="stack" style="gap:6px"><span class="label">That’s all four</span><h3>Back to all work</h3></span><span class="arrow">→</span></a>
   </div>
 </div>
 
@@ -948,7 +941,7 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
   <div class="wrap">
     <div class="backrow"><a class="back" href="#work">← Back to all work</a><span class="stk-row" aria-hidden="true"><span class="stk stk-heart "><svg viewBox="0 0 60 56"><path stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round" paint-order="stroke" fill="#E98B8B" d="M30 52C8 36 2 26 4 16 6 6 18 2 30 14 42 2 54 6 56 16 58 26 52 36 30 52Z"/></svg></span><span class="stk stk-star "><svg viewBox="0 0 60 60"><path stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round" paint-order="stroke" fill="#3F5A8C" d="M30 4 37 22 56 23 41 35 46 54 30 43 14 54 19 35 4 23 23 22Z"/></svg></span><span class="stk stk-flower "><svg viewBox="0 0 100 100"><g stroke="#FFFFFF" stroke-width="5" paint-order="stroke"><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(0 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(72 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(144 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(216 50 50)"/><circle cx="50" cy="26" r="18" fill="#F4A97E" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="13" fill="#F7D36B"/></g></svg></span></span></div>
     <header class="cs-head band bg-sage">
-      <span class="tag bg-sage" style="align-self:flex-start">Co-design · Workplace learning</span>
+      <span class="tag bg-sage" style="align-self:flex-start">Co-design · Real client · Tested with a real user</span>
       <h1>Daily Card, a co-designed job aid for a new admin assistant</h1>
       <p class="lead">A low-fidelity desk card that brings a new hire’s workflow and a tricky decision process into one familiar, paper-based tool, shaped with her at every step.</p>
       <div class="facts">
@@ -1171,10 +1164,10 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
     function pickVoice(){ var v=synth.getVoices(); return v.find(function(x){return /en-ZA/i.test(x.lang);})||v.find(function(x){return /en-GB/i.test(x.lang);})||v.find(function(x){return /^en/i.test(x.lang);})||null; }
     function blocks(){
       var page=document.querySelector('[data-page].active'); var out=[];
-      var nodes=page.querySelectorAll('h1,h2,h3,p,li,figcaption,.t,.s,.bt,.q,.label,.lotags');
+      var nodes=page.querySelectorAll('h1,h2,h3,p,li,figcaption,.t,.s,.bt,.q,.label,.lotags,.avail');
       nodes.forEach(function(n){
         if(n.closest('.stock-tag,.hint,[aria-hidden="true"],template')) return;
-        if(n.parentElement && n.parentElement.closest('li,p,.t,.s,.bt,.q,.lotags')) return;
+        if(n.parentElement && n.parentElement.closest('li,p,.t,.s,.bt,.q,.lotags,.avail')) return;
         var t=(n.textContent||'').replace(/[↗→↻↺]/g,'').replace(/\s+/g,' ').trim();
         if(t) out.push({el:n.closest('.flip')||n, text:t});
       });
